@@ -5,1339 +5,2514 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#302044">
-<meta name="description" content="ARVANA Brand & Marketing Audit – descoperă cât de clar și coerent este construit brandul și marketingul businessului tău.">
+<meta name="description" content="ARVANA Brand & Marketing Audit — evaluează fundația brandului și a activităților tale de marketing. Descoperă oportunitățile de dezvoltare ale businessului tău.">
+
 <title>ARVANA | Brand & Marketing Audit</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --dark:#2D1D40;
+  --plum:#302044;
+  --deep:#241532;
   --purple:#49316F;
-  --medium:#67478E;
-  --light:#9478B8;
-  --violet:#B9A3D7;
-  --lavender:#E2D7EF;
-  --pale:#F8F5FB;
-  --white:#fff;
+  --violet:#67478E;
+  --medium:#8064A5;
+  --lavender:#B9A3D7;
+  --pale:#F1EAF7;
+  --pale2:#F9F6FB;
+  --gold:#C5A46D;
+  --gold-light:#E5D5B5;
+  --white:#FFFFFF;
   --ink:#382C44;
   --muted:#857B90;
   --line:#E9E1F0;
-  --serif:"Playfair Display",Georgia,serif;
+  --serif:"Bodoni Moda",Georgia,serif;
+  --editorial:"Cormorant Garamond",Georgia,serif;
   --sans:"Manrope",sans-serif;
-  --body:"DM Sans",sans-serif;
   --shadow:0 22px 65px rgba(48,32,68,.10);
 }
 
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
+
 body{
   margin:0;
+  font-family:var(--sans);
   color:var(--ink);
   background:#FCFAFD;
-  font-family:var(--body);
-  line-height:1.7;
   overflow-x:hidden;
 }
-button{font:inherit}
-a{color:inherit;text-decoration:none}
-button:focus-visible,a:focus-visible{outline:3px solid var(--violet);outline-offset:4px}
 
-/* GLOBAL ATMOSPHERE */
+button,input{font:inherit}
 
-.ambient{
+button{cursor:pointer}
+
+a{color:inherit}
+
+::selection{
+  background:var(--lavender);
+  color:var(--deep);
+}
+
+/* ANIMATED BACKGROUND */
+
+.background-effects{
   position:fixed;
-  z-index:-2;
+  inset:0;
+  overflow:hidden;
   pointer-events:none;
-  border-radius:50%;
-  filter:blur(100px);
-  opacity:.34;
+  z-index:-1;
 }
-.ambient.a{width:420px;height:420px;background:#D8C5EC;top:10%;left:-260px;animation:ambientA 18s ease-in-out infinite alternate}
-.ambient.b{width:380px;height:380px;background:#C5B0DF;top:58%;right:-240px;animation:ambientB 21s ease-in-out infinite alternate}
-.ambient.c{width:300px;height:300px;background:#E8DDF2;bottom:0;left:35%;animation:ambientA 24s ease-in-out infinite alternate-reverse}
 
-@keyframes ambientA{
-  from{transform:translate(0,0) scale(1)}
-  to{transform:translate(70px,60px) scale(1.18)}
+.orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(2px);
+  opacity:.20;
+  animation:float 13s ease-in-out infinite;
 }
-@keyframes ambientB{
-  from{transform:translate(0,0) scale(1)}
-  to{transform:translate(-60px,80px) scale(1.15)}
+
+.orb.one{
+  width:280px;
+  height:280px;
+  background:radial-gradient(circle,#B9A3D7,transparent 70%);
+  top:12%;
+  left:-130px;
 }
+
+.orb.two{
+  width:340px;
+  height:340px;
+  background:radial-gradient(circle,#D9C8E8,transparent 70%);
+  top:48%;
+  right:-170px;
+  animation-delay:-5s;
+}
+
+.orb.three{
+  width:220px;
+  height:220px;
+  background:radial-gradient(circle,#C5A46D,transparent 70%);
+  bottom:0;
+  left:20%;
+  opacity:.10;
+  animation-delay:-8s;
+}
+
 @keyframes float{
-  0%,100%{transform:translate3d(0,0,0) rotate(0)}
-  50%{transform:translate3d(0,-18px,0) rotate(5deg)}
+  0%,100%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(18px,-28px,0) scale(1.08)}
 }
-@keyframes floatReverse{
-  0%,100%{transform:translate3d(0,0,0) rotate(0)}
-  50%{transform:translate3d(12px,17px,0) rotate(-8deg)}
+
+@keyframes rotate{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
 }
-@keyframes rotateSlow{to{transform:rotate(360deg)}}
-@keyframes pulse{
-  0%,100%{opacity:.25;transform:scale(.94)}
-  50%{opacity:.65;transform:scale(1.06)}
-}
+
 @keyframes fadeUp{
-  from{opacity:0;transform:translateY(35px)}
+  from{opacity:0;transform:translateY(28px)}
   to{opacity:1;transform:translateY(0)}
 }
+
 @keyframes fadeIn{
   from{opacity:0}
   to{opacity:1}
 }
-@keyframes revealLine{
-  from{transform:scaleX(0)}
-  to{transform:scaleX(1)}
-}
-@keyframes shimmer{
+
+@keyframes shine{
   0%{background-position:-200% center}
   100%{background-position:200% center}
 }
-@keyframes barIn{
-  from{width:0}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1);opacity:.65}
+  50%{transform:scale(1.12);opacity:1}
 }
+
 @keyframes scoreIn{
-  from{opacity:0;transform:scale(.7) rotate(-20deg)}
-  to{opacity:1;transform:scale(1) rotate(0)}
+  from{opacity:0;transform:scale(.88)}
+  to{opacity:1;transform:scale(1)}
 }
 
-/* ABSTRACT DECORATIONS */
-
-.orb{
-  position:absolute;
-  pointer-events:none;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.32);
+@keyframes orbit{
+  from{transform:rotate(0deg) translateX(12px) rotate(0deg)}
+  to{transform:rotate(360deg) translateX(12px) rotate(-360deg)}
 }
-.orb:after{
-  content:"";
-  position:absolute;
-  inset:14px;
-  border:1px solid rgba(255,255,255,.20);
-  border-radius:50%;
-}
-.orb-one{width:125px;height:125px;top:18%;right:9%;animation:float 9s ease-in-out infinite}
-.orb-two{width:75px;height:75px;bottom:17%;left:7%;animation:floatReverse 8s ease-in-out infinite}
-.orb-three{width:180px;height:180px;top:42%;right:-80px;animation:rotateSlow 55s linear infinite}
-.orb-three:after{inset:28px}
-.decor-ring{
-  position:absolute;
-  width:210px;height:210px;
-  border:1px solid rgba(177,154,210,.35);
-  border-radius:50%;
-  pointer-events:none;
-  animation:rotateSlow 65s linear infinite;
-}
-.decor-ring:before,.decor-ring:after{
-  content:"";
-  position:absolute;
-  border:1px solid rgba(177,154,210,.25);
-  border-radius:50%;
-}
-.decor-ring:before{inset:17px}
-.decor-ring:after{inset:35px}
 
 /* HEADER */
 
 .header{
-  position:relative;
-  z-index:10;
-  background:rgba(255,255,255,.91);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(73,49,111,.10);
-}
-.header-inner{
-  max-width:1280px;
-  min-height:116px;
-  padding:12px 38px;
-  margin:auto;
+  width:100%;
+  padding:22px 6%;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:20px;
+  position:relative;
+  z-index:5;
+  background:rgba(255,255,255,.76);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(197,164,109,.25);
 }
-.logo{
-  display:block;
-  width:275px;
-  max-height:92px;
-  object-fit:contain;
-  object-position:left center;
-  transition:transform .5s ease;
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  text-decoration:none;
 }
-.brand-link:hover .logo{transform:scale(1.035)}
-.logo-fallback{
-  display:none;
-  color:var(--purple);
-  font-family:var(--sans);
-  font-size:31px;
-  font-weight:800;
-  letter-spacing:5px;
+
+.logo-symbol{
+  width:66px;
+  height:66px;
+  flex-shrink:0;
+  filter:drop-shadow(0 5px 10px rgba(48,32,68,.12));
 }
-.header-note{
-  text-align:right;
-  color:var(--purple);
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:2.3px;
-  text-transform:uppercase;
+
+.brand-name{
+  font-family:var(--serif);
+  font-size:29px;
+  letter-spacing:3px;
+  line-height:1;
+  color:var(--plum);
 }
-.header-note span{
-  display:block;
-  margin-top:5px;
-  color:var(--light);
+
+.brand-subtitle{
   font-size:9px;
-  letter-spacing:1.5px;
+  letter-spacing:3px;
+  margin-top:7px;
+  color:var(--violet);
+  font-weight:700;
+}
+
+.header-label{
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-align:right;
 }
 
 /* HERO */
 
 .hero{
+  min-height:610px;
   position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:95px 22px 105px;
   overflow:hidden;
-  padding:105px 24px 105px;
   background:
-    radial-gradient(ellipse at 80% 20%,rgba(177,154,210,.42),transparent 35%),
-    radial-gradient(ellipse at 10% 85%,rgba(220,208,237,.5),transparent 35%),
-    linear-gradient(135deg,#F3EDF9,#FCFAFD 55%,#EFE7F6);
+    radial-gradient(ellipse at 50% 110%,rgba(185,163,215,.26),transparent 48%),
+    linear-gradient(145deg,#FBF9FD,#F2ECF7);
 }
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:470px;
+  height:470px;
+  border:1px solid rgba(197,164,109,.25);
+  border-radius:50%;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  animation:rotate 65s linear infinite;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:350px;
+  height:350px;
+  border:1px solid rgba(103,71,142,.14);
+  border-radius:50%;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  animation:rotate 45s linear infinite reverse;
+}
+
 .hero-inner{
   position:relative;
   z-index:2;
-  max-width:970px;
-  margin:auto;
+  max-width:900px;
   text-align:center;
   animation:fadeUp 1s ease both;
 }
+
 .eyebrow{
-  display:inline-flex;
+  display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
-  color:var(--medium);
+  gap:14px;
+  text-align:center;
+  width:100%;
+  margin:0 auto 25px;
+  color:var(--violet);
+  text-transform:uppercase;
+  letter-spacing:3px;
   font-size:10px;
   font-weight:800;
-  letter-spacing:2.8px;
-  text-transform:uppercase;
 }
-.eyebrow:before,.eyebrow:after{
+
+.eyebrow:before,
+.eyebrow:after{
   content:"";
-  width:28px;height:1px;
-  background:var(--violet);
+  display:block;
+  width:34px;
+  height:1px;
+  flex:0 0 34px;
+  background:var(--gold);
 }
+
 .hero h1{
-  margin:26px 0 23px;
-  color:var(--dark);
   font-family:var(--serif);
-  font-size:clamp(45px,7vw,82px);
+  font-size:clamp(43px,7vw,82px);
+  line-height:1.12;
   font-weight:400;
-  line-height:1.08;
+  color:var(--plum);
+  margin:0 auto 22px;
   letter-spacing:-2px;
 }
-.hero h1 em{color:var(--medium);font-weight:400}
+
+.hero h1 span{
+  color:var(--violet);
+  font-style:italic;
+}
+
 .hero-description{
-  max-width:760px;
-  margin:auto;
-  color:#766C83;
-  font-size:15px;
-  line-height:2;
-}
-.hero-description strong{color:var(--purple)}
-.hero-divider{
-  width:65px;height:2px;
-  margin:34px auto;
-  background:linear-gradient(90deg,var(--purple),var(--violet));
-  transform-origin:center;
-  animation:revealLine 1.2s .4s ease both;
-}
-.hero-statement{
   max-width:680px;
-  margin:auto;
-  color:var(--purple);
+  margin:0 auto;
+  color:#71667D;
+  font-size:15px;
+  line-height:1.95;
+}
+
+.hero-note{
+  margin-top:35px;
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+/* GENERAL SECTIONS */
+
+.container{
+  width:min(1120px,90%);
+  margin:0 auto;
+}
+
+.section{
+  padding:85px 0;
+}
+
+.section-heading{
+  max-width:720px;
+  margin:0 auto 48px;
+  text-align:center;
+}
+
+.section-heading h2{
   font-family:var(--serif);
-  font-size:clamp(21px,3vw,28px);
-  line-height:1.5;
-}
-.hero-meta{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:14px 29px;
-  margin-top:38px;
-}
-.meta-item{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  color:var(--medium);
-  font-size:11px;
-  font-weight:700;
-}
-.meta-dot{
-  width:7px;height:7px;
-  border-radius:50%;
-  background:var(--violet);
-  box-shadow:0 0 0 4px rgba(177,154,210,.18);
+  font-weight:400;
+  color:var(--plum);
+  font-size:clamp(35px,5vw,54px);
+  line-height:1.2;
+  margin:0 0 15px;
 }
 
-/* MAIN */
-
-.main{
-  position:relative;
-  max-width:1040px;
-  margin:auto;
-  padding:0 25px 100px;
+.section-heading p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.9;
+  margin:0;
 }
 
-/* CENTERED PURPLE INTRO BOX */
+/* INTRO PANEL */
+
+.intro-wrap{
+  padding:10px 0 75px;
+}
 
 .intro-panel{
   position:relative;
   overflow:hidden;
-  margin:-34px auto 0;
-  max-width:950px;
-  min-height:245px;
-  padding:53px 65px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  padding:65px 65px;
+  border-radius:28px;
+  color:white;
   text-align:center;
-  color:white;
   background:
-    radial-gradient(circle at 90% 10%,rgba(194,172,223,.25),transparent 32%),
-    radial-gradient(circle at 8% 95%,rgba(177,154,210,.20),transparent 36%),
-    linear-gradient(125deg,#302044,#49316F 62%,#5D417F);
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:4px;
-  box-shadow:0 25px 65px rgba(48,32,68,.19);
-  animation:fadeUp .9s .2s ease both;
+    radial-gradient(circle at 90% 15%,rgba(197,164,109,.17),transparent 28%),
+    radial-gradient(circle at 8% 100%,rgba(185,163,215,.16),transparent 35%),
+    linear-gradient(130deg,#302044,#49316F 65%,#5A407A);
+  border:1px solid rgba(229,213,181,.65);
+  box-shadow:0 25px 65px rgba(48,32,68,.17);
 }
-.intro-panel:before,.intro-panel:after{
-  content:"";
-  position:absolute;
-  border:1px solid rgba(229,217,243,.18);
-  border-radius:50%;
-  pointer-events:none;
-}
+
 .intro-panel:before{
-  width:240px;height:240px;
-  right:-90px;top:-130px;
-  animation:rotateSlow 50s linear infinite;
-}
-.intro-panel:after{
-  width:175px;height:175px;
-  left:-80px;bottom:-110px;
-  animation:floatReverse 12s ease-in-out infinite;
-}
-.intro-panel .decor-ring{
-  width:125px;height:125px;
-  top:50%;right:8%;
-  transform:translateY(-50%);
-  opacity:.55;
-}
-.intro-content{position:relative;z-index:2;max-width:710px}
-.intro-panel .eyebrow{color:#DCCFED}
-.intro-panel .eyebrow:before,.intro-panel .eyebrow:after{background:#BCA8D5}
-.intro-panel h2{
-  color:#fff;
-  font-family:var(--serif);
-  font-size:clamp(31px,4.5vw,45px);
-  line-height:1.2;
-  font-weight:400;
-  margin:17px 0 15px;
-}
-.intro-panel p{
-  max-width:660px;
-  margin:auto;
-  color:#E4DCEB;
-  font-size:14px;
-  line-height:1.9;
-}
-
-/* SIX EDITORIAL BOXES */
-
-.understanding{margin-top:95px}
-.section-heading{text-align:center;margin-bottom:38px}
-.section-heading h2{
-  color:var(--dark);
-  font-family:var(--serif);
-  font-size:clamp(31px,4vw,42px);
-  line-height:1.25;
-  font-weight:400;
-  margin:14px 0 10px;
-}
-.section-heading p{color:var(--muted);font-size:13px;margin:0}
-.feature-list{display:flex;flex-direction:column;gap:15px}
-.feature-box{
-  position:relative;
-  min-height:150px;
-  padding:30px 38px;
-  display:grid;
-  grid-template-columns:1fr 105px;
-  align-items:center;
-  gap:25px;
-  overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:3px;
-  box-shadow:0 9px 30px rgba(48,32,68,.035);
-  opacity:0;
-  transform:translateY(38px);
-  transition:transform .65s cubic-bezier(.2,.8,.2,1),opacity .65s,box-shadow .4s;
-}
-.feature-box.revealed{opacity:1;transform:translateY(0)}
-.feature-box:hover{
-  transform:translateX(7px) translateY(-3px);
-  box-shadow:0 20px 42px rgba(48,32,68,.12);
-}
-.feature-box:before{
   content:"";
   position:absolute;
-  left:0;top:0;
-  width:4px;height:100%;
-  transform:scaleY(0);
-  transform-origin:bottom;
-  transition:transform .45s ease;
-}
-.feature-box:hover:before{transform:scaleY(1)}
-.feature-box.light{background:#fff;color:var(--dark)}
-.feature-box.light:before{background:var(--violet)}
-.feature-box.dark{
-  color:white;
-  background:linear-gradient(115deg,#302044,#49316F 70%,#5A407A);
-  border-color:#49316F;
-}
-.feature-box.dark:before{background:#DCD0ED}
-.feature-copy{position:relative;z-index:2}
-.feature-kicker{
-  display:block;
-  font-size:9px;
-  font-weight:800;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:8px;
-}
-.light .feature-kicker{color:var(--light)}
-.dark .feature-kicker{color:#CDBBE5}
-.feature-box h3{
-  font-family:var(--serif);
-  font-size:clamp(25px,3vw,33px);
-  font-weight:400;
-  line-height:1.25;
-  margin:0 0 8px;
-}
-.feature-box p{max-width:740px;font-size:12px;line-height:1.9;margin:0}
-.light p{color:var(--muted)}
-.dark p{color:#E0D7EA}
-.feature-number{
-  justify-self:end;
-  font-family:var(--serif);
-  font-size:clamp(58px,7vw,79px);
-  line-height:1;
-  transition:transform .5s ease;
-}
-.light .feature-number{color:#DCCFED}
-.dark .feature-number{color:rgba(224,211,241,.58)}
-.feature-box:hover .feature-number{transform:scale(1.12) rotate(-5deg)}
-
-/* AUDIT */
-
-.audit-area{margin-top:105px}
-.audit-heading{text-align:center;margin-bottom:30px}
-.audit-heading h2{
-  color:var(--dark);
-  font-family:var(--serif);
-  font-size:clamp(31px,4vw,42px);
-  font-weight:400;
-  margin:13px 0 7px;
-}
-.audit-heading p{color:var(--muted);font-size:13px;margin:0}
-.progress-panel{
-  padding:19px 23px;
-  margin-bottom:17px;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:5px;
-}
-.progress-top{display:flex;justify-content:space-between;gap:12px;margin-bottom:11px}
-.progress-label{color:var(--purple);font-size:11px;font-weight:800}
-.progress-percent{color:var(--muted);font-size:11px}
-.progress-track{height:5px;background:var(--pale);border-radius:20px;overflow:hidden}
-.progress-fill{
-  width:0;height:100%;
-  background:linear-gradient(90deg,var(--purple),var(--violet));
-  border-radius:20px;
-  transition:width .6s cubic-bezier(.2,.8,.2,1);
-}
-.question-card{
-  position:relative;
-  overflow:hidden;
-  min-height:360px;
-  padding:39px 43px;
-  background:white;
-  border:1px solid rgba(104,73,149,.15);
-  border-radius:5px;
-  box-shadow:var(--shadow);
-  animation:fadeUp .5s ease both;
-}
-.question-card:after{
-  content:"";
-  position:absolute;
-  width:200px;height:200px;
-  right:-110px;bottom:-110px;
-  border:1px solid rgba(177,154,210,.35);
+  width:240px;
+  height:240px;
+  border:1px solid rgba(229,213,181,.25);
   border-radius:50%;
-  box-shadow:0 0 0 22px rgba(177,154,210,.06),0 0 0 45px rgba(177,154,210,.035);
-  animation:float 10s ease-in-out infinite;
-  pointer-events:none;
+  right:-100px;
+  top:-115px;
+  animation:rotate 45s linear infinite;
 }
-.question-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}
-.dimension-tag{
-  padding:7px 14px;
-  background:var(--pale);
-  color:var(--purple);
-  border-radius:30px;
-  font-size:9px;
-  font-weight:800;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
+
+.intro-panel:after{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  border:1px solid rgba(229,213,181,.22);
+  border-radius:50%;
+  left:-65px;
+  bottom:-65px;
+  animation:rotate 35s linear infinite reverse;
 }
-.question-index{color:var(--violet);font-family:var(--serif);font-size:20px}
-.question-title{
-  max-width:690px;
-  color:var(--dark);
+
+.intro-content{
+  position:relative;
+  z-index:1;
+  max-width:760px;
+  margin:auto;
+}
+
+.intro-panel .eyebrow{color:var(--gold-light)}
+
+.intro-panel h2{
   font-family:var(--serif);
-  font-size:clamp(25px,4vw,34px);
-  line-height:1.35;
   font-weight:400;
-  margin:0 0 11px;
+  font-size:clamp(35px,5vw,57px);
+  line-height:1.2;
+  margin:0 0 22px;
 }
-.question-description{max-width:640px;color:var(--muted);font-size:13px;margin:0 0 30px}
-.scale{position:relative;z-index:1;display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-.scale-option{
-  min-height:84px;
-  padding:12px 5px;
-  background:#FDFCFE;
-  color:var(--purple);
-  border:1px solid var(--line);
-  border-radius:5px;
-  cursor:pointer;
-  transition:transform .3s,border .3s,background .3s,box-shadow .3s;
+
+.intro-panel p{
+  font-size:14px;
+  line-height:2;
+  color:rgba(255,255,255,.82);
+  margin:0;
 }
-.scale-option:hover{
-  transform:translateY(-5px);
-  border-color:var(--violet);
-  box-shadow:0 10px 24px rgba(73,49,111,.10);
+
+/* SIX FEATURE BOXES */
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
 }
-.scale-option.selected{
+
+.feature-box{
+  min-height:245px;
+  padding:35px;
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  border:1px solid rgba(197,164,109,.52);
+  transition:transform .5s ease,box-shadow .5s ease;
+  animation:fadeUp .8s ease both;
+}
+
+.feature-box:nth-child(1){animation-delay:.05s}
+.feature-box:nth-child(2){animation-delay:.12s}
+.feature-box:nth-child(3){animation-delay:.19s}
+.feature-box:nth-child(4){animation-delay:.26s}
+.feature-box:nth-child(5){animation-delay:.33s}
+.feature-box:nth-child(6){animation-delay:.40s}
+
+.feature-box:hover{
+  transform:translateY(-7px);
+  box-shadow:0 22px 45px rgba(48,32,68,.12);
+}
+
+.feature-box.light{
+  background:linear-gradient(145deg,#FFFFFF,#FBF8FD);
+  color:var(--plum);
+}
+
+.feature-box.dark{
+  background:
+    radial-gradient(circle at 90% 10%,rgba(197,164,109,.14),transparent 35%),
+    linear-gradient(125deg,#302044,#49316F 70%,#5A407A);
   color:white;
-  background:linear-gradient(145deg,var(--dark),var(--medium));
-  border-color:var(--purple);
-  box-shadow:0 9px 23px rgba(73,49,111,.2);
-  transform:translateY(-3px);
+  border-color:rgba(229,213,181,.52);
 }
-.scale-option strong{display:block;font-family:var(--serif);font-size:26px;font-weight:400}
-.scale-option span{display:block;font-size:9px;line-height:1.4}
-.scale-hint{display:flex;justify-content:space-between;gap:10px;color:#A39AAA;font-size:10px;margin-top:12px}
-.error{display:none;color:#A64C58;font-size:11px;margin-top:13px}
-.navigation{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px}
+
+.feature-icon{
+  width:50px;
+  height:50px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--gold);
+  border-radius:16px;
+  color:var(--violet);
+  font-family:var(--editorial);
+  font-size:26px;
+  margin-bottom:23px;
+}
+
+.dark .feature-icon{
+  color:var(--gold-light);
+  border-color:rgba(229,213,181,.7);
+}
+
+.feature-box h3{
+  font-family:var(--editorial);
+  font-size:29px;
+  font-weight:600;
+  margin:0 0 12px;
+}
+
+.feature-box p{
+  font-size:12px;
+  line-height:1.9;
+  opacity:.76;
+  margin:0;
+  max-width:440px;
+}
+
+.feature-decoration{
+  position:absolute;
+  width:100px;
+  height:100px;
+  right:-35px;
+  bottom:-42px;
+  border:1px solid rgba(197,164,109,.38);
+  border-radius:50%;
+  animation:rotate 35s linear infinite;
+}
+
+.feature-decoration:after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(197,164,109,.25);
+  border-radius:50%;
+}
+
+/* AUDIT INTRODUCTION */
+
+.audit-intro{
+  background:linear-gradient(180deg,transparent,#F5F0F9 100%);
+  padding:70px 0;
+}
+
+.audit-intro-card{
+  background:white;
+  border:1px solid rgba(197,164,109,.55);
+  border-radius:26px;
+  padding:48px;
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+
+.audit-intro-card h2{
+  font-family:var(--serif);
+  font-size:clamp(34px,5vw,50px);
+  font-weight:400;
+  color:var(--plum);
+  margin:0 0 18px;
+}
+
+.audit-intro-card p{
+  max-width:700px;
+  margin:0 auto;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:14px;
+}
 
 /* BUTTONS */
 
-.btn{
+.primary-btn,
+.secondary-btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:9px;
-  padding:14px 25px;
-  border:0;
-  border-radius:40px;
-  cursor:pointer;
+  gap:12px;
+  padding:17px 30px;
+  border-radius:50px;
+  border:1px solid var(--gold);
   font-size:11px;
+  letter-spacing:1.5px;
   font-weight:800;
-  letter-spacing:.4px;
-  transition:transform .3s,box-shadow .3s,background .3s;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:all .35s ease;
 }
-.btn:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 12px 25px rgba(48,32,68,.17)}
-.btn:disabled{opacity:.35;cursor:not-allowed}
-.btn-primary{color:white;background:linear-gradient(120deg,var(--dark),var(--medium))}
-.btn-light{color:var(--purple);background:var(--pale);border:1px solid var(--line)}
+
+.primary-btn{
+  color:white;
+  background:linear-gradient(110deg,#49316F,#67478E,#49316F);
+  background-size:200% auto;
+  box-shadow:0 10px 30px rgba(73,49,111,.20);
+}
+
+.primary-btn:hover{
+  background-position:right center;
+  transform:translateY(-3px);
+  box-shadow:0 15px 35px rgba(73,49,111,.28);
+}
+
+.secondary-btn{
+  color:var(--purple);
+  background:white;
+}
+
+.secondary-btn:hover{
+  background:var(--pale);
+  transform:translateY(-2px);
+}
+
+/* AUDIT AREA */
+
+.audit-area{
+  padding:85px 0 100px;
+  display:none;
+}
+
+.audit-area.active{display:block;animation:fadeIn .6s ease}
+
+.progress-panel{
+  background:white;
+  border:1px solid rgba(197,164,109,.5);
+  border-radius:22px;
+  padding:25px 30px;
+  margin-bottom:28px;
+  box-shadow:0 12px 35px rgba(48,32,68,.05);
+}
+
+.progress-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:14px;
+  font-size:11px;
+  color:var(--muted);
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.progress-track{
+  height:7px;
+  border-radius:20px;
+  background:#EEE8F3;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+  border-radius:20px;
+  background:linear-gradient(90deg,var(--purple),var(--lavender),var(--gold));
+  transition:width .5s ease;
+}
+
+.audit-heading{
+  text-align:center;
+  margin:55px auto 35px;
+}
+
+.audit-heading .eyebrow{margin-bottom:15px}
+
+.audit-heading h2{
+  font-family:var(--serif);
+  font-size:clamp(34px,5vw,49px);
+  color:var(--plum);
+  font-weight:400;
+  margin:0 0 12px;
+}
+
+.audit-heading p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+
+/* QUESTION CARDS */
+
+.question-card{
+  display:none;
+  position:relative;
+  background:white;
+  padding:42px;
+  border-radius:24px;
+  border:1px solid rgba(197,164,109,.52);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  animation:fadeUp .55s ease;
+}
+
+.question-card.active{display:block}
+
+.question-category{
+  color:var(--violet);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:10px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.question-card h3{
+  font-family:var(--editorial);
+  color:var(--plum);
+  font-size:34px;
+  line-height:1.3;
+  font-weight:600;
+  margin:0 0 30px;
+}
+
+.answer-options{
+  display:grid;
+  gap:12px;
+}
+
+.answer-option{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  width:100%;
+  text-align:left;
+  padding:17px 19px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  color:var(--ink);
+  background:#FEFCFF;
+  transition:all .25s ease;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.answer-option:hover{
+  border-color:var(--gold);
+  background:#FBF8FD;
+  transform:translateX(3px);
+}
+
+.answer-option.selected{
+  border-color:var(--violet);
+  background:#F2ECF8;
+  box-shadow:inset 0 0 0 1px var(--violet);
+}
+
+.answer-dot{
+  width:22px;
+  height:22px;
+  min-width:22px;
+  border:1px solid #C8BBD5;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:10px;
+  color:transparent;
+}
+
+.selected .answer-dot{
+  background:var(--violet);
+  color:white;
+  border-color:var(--violet);
+}
+
+.question-navigation{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-top:30px;
+}
+
+.nav-button{
+  border:1px solid var(--gold);
+  border-radius:40px;
+  padding:14px 23px;
+  background:white;
+  color:var(--purple);
+  font-size:11px;
+  letter-spacing:1px;
+  font-weight:800;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.nav-button.next{
+  background:var(--purple);
+  color:white;
+}
+
+.nav-button:hover:not(:disabled){transform:translateY(-2px)}
+
+.nav-button:disabled{
+  opacity:.35;
+  cursor:not-allowed;
+}
 
 /* RESULTS */
 
-.results{animation:fadeUp .7s ease both}
-.result-card{
-  padding:42px;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:6px;
-  box-shadow:var(--shadow);
+.results{
+  display:none;
+  padding:75px 0 100px;
 }
-.result-heading{text-align:center}
-.result-heading h2{
-  color:var(--dark);
+
+.results.active{display:block;animation:fadeIn .7s ease}
+
+.results-header{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.results-header h2{
   font-family:var(--serif);
-  font-size:39px;
+  color:var(--plum);
+  font-size:clamp(38px,6vw,60px);
   font-weight:400;
-  margin:10px 0 4px;
+  margin:0 0 14px;
 }
-.result-heading p{color:var(--muted);font-size:12px;margin:0}
+
+.results-header p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+
+.result-card{
+  background:white;
+  border:1px solid rgba(197,164,109,.58);
+  border-radius:26px;
+  padding:42px;
+  box-shadow:var(--shadow);
+  margin-bottom:25px;
+}
+
+.score-layout{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  align-items:center;
+  gap:35px;
+}
+
 .score-circle{
   position:relative;
   display:grid;
   place-items:center;
-  width:190px;height:190px;
-  margin:32px auto 20px;
-  border-radius:50%;
-  background:conic-gradient(var(--medium) var(--score),var(--pale) var(--score));
+  width:210px;
+  height:210px;
+  margin:auto;
   animation:scoreIn .9s ease both;
 }
-.score-circle:before{
-  content:"";
+
+.score-svg{
   position:absolute;
-  width:162px;height:162px;
-  background:white;
-  border-radius:50%;
+  inset:0;
+  width:100%;
+  height:100%;
+  transform:rotate(-90deg);
+  overflow:visible;
 }
-.score-content{position:relative;z-index:1;text-align:center}
-.score-number{display:block;color:var(--dark);font-family:var(--serif);font-size:57px;line-height:1}
-.score-out-of{display:block;color:var(--muted);font-size:10px;margin-top:6px}
-.result-level-wrap{text-align:center}
-.result-level{
+
+.score-track{
+  fill:none;
+  stroke:#EAE2F1;
+  stroke-width:9;
+}
+
+.score-progress{
+  fill:none;
+  stroke:var(--violet);
+  stroke-width:9;
+  stroke-linecap:round;
+  stroke-dasharray:490.09;
+  stroke-dashoffset:490.09;
+  transition:stroke-dashoffset 1.5s ease;
+}
+
+.score-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+}
+
+.score-number{
+  display:block;
+  font-family:var(--serif);
+  font-size:67px;
+  line-height:1;
+  color:var(--plum);
+}
+
+.score-out-of{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:1px;
+  margin-top:8px;
+}
+
+.score-summary h3{
+  font-family:var(--editorial);
+  color:var(--plum);
+  font-size:36px;
+  font-weight:600;
+  margin:0 0 12px;
+}
+
+.score-summary p{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.9;
+  margin:0;
+}
+
+.score-level{
   display:inline-block;
-  padding:9px 18px;
-  background:var(--pale);
-  color:var(--purple);
-  border:1px solid var(--lavender);
-  border-radius:30px;
-  font-size:11px;
+  margin-top:17px;
+  padding:9px 16px;
+  background:#F1EAF7;
+  color:var(--violet);
+  border-radius:40px;
+  font-size:10px;
+  letter-spacing:1px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+/* DIMENSIONS */
+
+.result-section-title{
+  font-family:var(--serif);
+  font-weight:400;
+  color:var(--plum);
+  font-size:36px;
+  margin:0 0 25px;
+}
+
+.dimension-list{
+  display:grid;
+  gap:24px;
+}
+
+.dimension-item{
+  break-inside:avoid;
+}
+
+.dimension-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.dimension-name{
+  font-size:12px;
+  font-weight:800;
+  color:var(--ink);
+}
+
+.dimension-score{
+  color:var(--violet);
+  font-size:12px;
   font-weight:800;
 }
-.result-summary{max-width:650px;color:var(--muted);text-align:center;font-size:13px;margin:18px auto 0}
-.section-title{
-  color:var(--dark);
-  font-family:var(--serif);
-  font-size:27px;
-  font-weight:400;
-  margin:38px 0 18px;
+
+.dimension-track{
+  height:10px;
+  border-radius:30px;
+  background:#EEE8F3;
+  overflow:hidden;
 }
-.dimension-result{margin-bottom:19px}
-.dimension-top{display:flex;justify-content:space-between;gap:12px;font-size:12px;margin-bottom:7px}
-.dimension-top strong{color:var(--purple)}
-.dimension-top span{color:var(--medium);font-weight:800}
-.dimension-track{height:7px;background:var(--pale);border-radius:20px;overflow:hidden}
+
 .dimension-fill{
   height:100%;
-  background:linear-gradient(90deg,var(--purple),var(--violet));
-  border-radius:20px;
-  animation:barIn 1s ease both;
+  width:0;
+  border-radius:30px;
+  background:linear-gradient(90deg,#49316F,#9478B8,#C5A46D);
+  transition:width 1.3s ease;
 }
-.insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:25px}
-.insight{padding:20px;background:var(--pale);border:1px solid var(--line);border-radius:5px}
-.insight small{display:block;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;margin-bottom:7px}
-.insight strong{color:var(--purple);font-size:13px}
-.recommendation{
-  padding:18px 20px;
-  margin-bottom:11px;
-  background:#FAF8FC;
-  border-left:3px solid var(--violet);
-  border-radius:0 5px 5px 0;
-}
-.recommendation h4{color:var(--purple);font-size:12px;margin:0 0 6px}
-.recommendation p{color:var(--muted);font-size:12px;margin:0}
-.disclaimer{max-width:660px;color:#9991A0;text-align:center;font-size:10px;margin:25px auto 0}
-.result-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:25px}
 
-/* PROFESSIONAL ADVICE */
+.dimension-description{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.7;
+}
+
+/* INSIGHTS */
+
+.insights-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin-top:25px;
+}
+
+.insight{
+  padding:25px;
+  border-radius:18px;
+  border:1px solid rgba(197,164,109,.5);
+  background:#FBF9FD;
+  break-inside:avoid;
+}
+
+.insight-label{
+  font-size:9px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:800;
+  color:var(--violet);
+  margin-bottom:10px;
+}
+
+.insight h4{
+  font-family:var(--editorial);
+  font-size:25px;
+  font-weight:600;
+  color:var(--plum);
+  margin:0 0 8px;
+}
+
+.insight p{
+  font-size:12px;
+  line-height:1.8;
+  color:var(--muted);
+  margin:0;
+}
+
+/* RECOMMENDATIONS */
+
+.recommendations{
+  display:grid;
+  gap:15px;
+}
+
+.recommendation{
+  padding:23px 25px;
+  border-radius:17px;
+  background:#FBF9FD;
+  border:1px solid rgba(197,164,109,.48);
+  break-inside:avoid;
+}
+
+.recommendation h4{
+  font-family:var(--editorial);
+  font-size:25px;
+  color:var(--plum);
+  font-weight:600;
+  margin:0 0 9px;
+}
+
+.recommendation p{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.85;
+  margin:0;
+}
+
+/* PROFESSIONAL SECTION */
 
 .professional-section{
   position:relative;
   overflow:hidden;
-  margin-top:25px;
-  padding:47px 45px;
+  padding:55px;
+  margin:28px 0;
+  border-radius:25px;
+  border:1px solid rgba(197,164,109,.65);
   background:
-    radial-gradient(circle at 100% 0%,rgba(177,154,210,.28),transparent 35%),
-    linear-gradient(130deg,#F0EAF7,#FCFAFD);
-  border:1px solid #E4D8F0;
-  border-radius:5px;
-}
-.professional-section:after{
-  content:"";
-  position:absolute;
-  width:250px;height:250px;
-  right:-130px;bottom:-150px;
-  border:1px solid rgba(104,73,149,.18);
-  border-radius:50%;
-  box-shadow:0 0 0 25px rgba(104,73,149,.035);
-  animation:rotateSlow 55s linear infinite;
-  pointer-events:none;
-}
-.professional-content{position:relative;z-index:1;max-width:750px}
-.professional-section h3{
-  color:var(--dark);
-  font-family:var(--serif);
-  font-size:clamp(29px,4vw,39px);
-  line-height:1.25;
-  font-weight:400;
-  margin:15px 0;
-}
-.professional-section p{color:#70677D;font-size:13px;line-height:1.95;margin:0 0 14px}
-.professional-section p strong{color:var(--purple)}
-.professional-note{
-  padding-left:18px;
-  border-left:2px solid var(--violet);
-  color:var(--purple)!important;
-  font-family:var(--serif);
-  font-size:20px!important;
-  line-height:1.6!important;
-  margin:24px 0!important;
-}
-
-/* FINAL CTA */
-
-.cta{
-  position:relative;
-  overflow:hidden;
-  margin-top:24px;
-  padding:49px 30px;
-  background:
-    radial-gradient(circle at 90% 0%,rgba(177,154,210,.28),transparent 35%),
-    linear-gradient(130deg,#302044,#49316F 65%,#65488E);
-  border-radius:5px;
-  color:white;
+    radial-gradient(circle at 90% 10%,rgba(197,164,109,.15),transparent 35%),
+    linear-gradient(135deg,#F5F0F9,#FFFFFF);
   text-align:center;
 }
-.cta:before{
-  content:"";
-  position:absolute;
-  width:190px;height:190px;
-  left:-95px;bottom:-120px;
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:50%;
-  box-shadow:0 0 0 20px rgba(255,255,255,.04);
-  animation:float 10s ease-in-out infinite;
-}
-.cta .eyebrow{color:#DCCFED}
-.cta .eyebrow:before,.cta .eyebrow:after{background:#BDA9D7}
-.cta h3{
+
+.professional-section .eyebrow{margin-bottom:18px}
+
+.professional-section h3{
   font-family:var(--serif);
-  font-size:clamp(29px,4vw,38px);
   font-weight:400;
-  margin:15px 0;
+  font-size:clamp(34px,5vw,49px);
+  line-height:1.2;
+  color:var(--plum);
+  margin:0 auto 18px;
+  max-width:720px;
 }
-.cta p{max-width:560px;color:#E0D8E9;font-size:12px;margin:0 auto 24px}
-.cta .btn{color:var(--purple);background:white}
-.cta .btn:hover{background:var(--pale)}
+
+.professional-section p{
+  max-width:760px;
+  margin:0 auto 20px;
+  color:#756A80;
+  font-size:13px;
+  line-height:2;
+}
+
+.professional-highlight{
+  color:var(--violet);
+  font-weight:800;
+}
+
+/* RESULT ACTIONS */
+
+.result-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:14px;
+  margin:30px auto;
+}
+
+.disclaimer{
+  max-width:800px;
+  text-align:center;
+  margin:35px auto 0;
+  font-size:10px;
+  color:#9A91A2;
+  line-height:1.8;
+}
 
 /* FOOTER */
 
 .footer{
-  padding:33px 20px;
+  background:var(--deep);
+  color:white;
+  padding:55px 6% 30px;
   text-align:center;
-  background:white;
-  border-top:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
 }
-.footer img{width:190px;max-height:65px;object-fit:contain;margin-bottom:8px}
-.footer p{color:var(--muted);font-size:10px;margin:0}
-.hidden{display:none!important}
 
-/* RESPONSIVE */
+.footer:before{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  border:1px solid rgba(197,164,109,.2);
+  border-radius:50%;
+  left:-170px;
+  top:-170px;
+  animation:rotate 55s linear infinite;
+}
 
-@media(max-width:650px){
-  .header-inner{min-height:85px;padding:9px 16px;gap:10px}
-  .logo{width:185px;max-height:67px}
-  .header-note{font-size:7px;letter-spacing:.8px}
-  .header-note span{font-size:7px;letter-spacing:.6px}
-  .hero{padding:70px 18px 65px}
-  .hero h1{letter-spacing:-1px}
-  .hero-description{font-size:13px}
-  .hero-meta{gap:13px 18px}
-  .meta-item{font-size:10px}
-  .orb-one{right:-35px}
-  .orb-two{left:-30px}
-  .main{padding:0 14px 60px}
-  .intro-panel{
-    min-height:240px;
-    padding:38px 23px;
-    margin-top:-22px;
+.footer-brand{
+  font-family:var(--serif);
+  font-size:34px;
+  letter-spacing:4px;
+  color:white;
+  margin-bottom:8px;
+}
+
+.footer-subtitle{
+  color:var(--gold-light);
+  letter-spacing:3px;
+  font-size:9px;
+  margin-bottom:20px;
+}
+
+.footer-slogan{
+  color:rgba(255,255,255,.72);
+  font-family:var(--editorial);
+  font-size:24px;
+  font-style:italic;
+  margin-bottom:25px;
+}
+
+.footer-copy{
+  font-size:10px;
+  color:rgba(255,255,255,.45);
+  margin-top:30px;
+  line-height:1.8;
+}
+
+.footer-link{
+  display:inline-block;
+  color:var(--gold-light);
+  font-size:11px;
+  letter-spacing:1px;
+  text-decoration:none;
+  border-bottom:1px solid rgba(229,213,181,.5);
+  padding-bottom:5px;
+}
+
+/* REVEAL ANIMATIONS */
+
+.reveal{
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:760px){
+  .header{
+    padding:15px 5%;
   }
-  .intro-panel h2{font-size:32px}
-  .intro-panel p{font-size:12px}
-  .intro-panel .decor-ring{right:-35px;opacity:.35}
-  .understanding{margin-top:65px}
-  .section-heading{margin-bottom:25px}
-  .section-heading p{font-size:12px}
-  .feature-list{gap:10px}
+
+  .logo-symbol{
+    width:58px;
+    height:58px;
+  }
+
+  .brand-name{font-size:25px}
+
+  .brand-subtitle{
+    font-size:8px;
+    letter-spacing:2px;
+  }
+
+  .header-label{display:none}
+
+  .hero{
+    min-height:550px;
+    padding:80px 20px;
+  }
+
+  .hero:before{
+    width:320px;
+    height:320px;
+  }
+
+  .hero:after{
+    width:245px;
+    height:245px;
+  }
+
+  .hero h1{
+    font-size:clamp(42px,12vw,62px);
+    letter-spacing:-1px;
+  }
+
+  .hero-description{
+    font-size:13px;
+    line-height:1.9;
+  }
+
+  .eyebrow{
+    width:100%;
+    max-width:100%;
+    gap:9px;
+    font-size:9px;
+    letter-spacing:1.5px;
+    text-align:center;
+    justify-content:center;
+  }
+
+  .eyebrow:before,
+  .eyebrow:after{
+    width:20px;
+    flex-basis:20px;
+    min-width:20px;
+  }
+
+  .section{padding:65px 0}
+
+  .section-heading{margin-bottom:32px}
+
+  .intro-wrap{padding-bottom:55px}
+
+  .intro-panel{
+    padding:48px 24px;
+    border-radius:23px;
+  }
+
+  .intro-panel h2{font-size:39px}
+
+  .intro-panel p{
+    font-size:12px;
+    line-height:1.9;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
   .feature-box{
-    min-height:135px;
-    padding:23px 19px;
-    grid-template-columns:1fr 57px;
+    min-height:210px;
+    padding:28px;
+    animation:fadeUp .8s ease both;
+  }
+
+  .feature-box:nth-child(even){animation-delay:.16s}
+
+  .feature-box h3{font-size:27px}
+
+  .audit-intro{padding:55px 0}
+
+  .audit-intro-card{
+    padding:38px 24px;
+    border-radius:22px;
+  }
+
+  .audit-area{
+    padding:55px 0 70px;
+  }
+
+  .progress-panel{
+    padding:20px;
+  }
+
+  .question-card{
+    padding:28px 21px;
+    border-radius:20px;
+  }
+
+  .question-card h3{font-size:29px}
+
+  .answer-option{
+    padding:15px;
+    font-size:12px;
+  }
+
+  .question-navigation{
     gap:10px;
   }
-  .feature-box h3{font-size:24px}
-  .feature-box p{font-size:11px;line-height:1.7}
-  .feature-number{font-size:48px}
-  .audit-area{margin-top:75px}
-  .audit-heading h2{font-size:30px}
-  .question-card{min-height:auto;padding:26px 19px}
-  .question-title{font-size:25px}
-  .scale{gap:5px}
-  .scale-option{min-height:73px;padding:8px 2px}
-  .scale-option strong{font-size:20px}
-  .scale-option span{font-size:8px}
-  .scale-hint{font-size:8px}
-  .navigation .btn{padding:12px 15px;font-size:10px}
-  .result-card{padding:25px 19px}
-  .result-heading h2{font-size:30px}
-  .insight-grid{grid-template-columns:1fr}
-  .result-actions .btn{width:100%}
-  .professional-section{padding:32px 23px}
-  .professional-section h3{font-size:29px}
-  .cta{padding:38px 21px}
-  .cta h3{font-size:28px}
+
+  .nav-button{
+    padding:13px 15px;
+    font-size:9px;
+  }
+
+  .results{padding:55px 0 70px}
+
+  .result-card{
+    padding:28px 20px;
+    border-radius:22px;
+  }
+
+  .score-layout{
+    grid-template-columns:1fr;
+    gap:22px;
+    text-align:center;
+  }
+
+  .score-circle{
+    width:185px;
+    height:185px;
+  }
+
+  .score-summary h3{font-size:31px}
+
+  .result-section-title{font-size:31px}
+
+  .insights-grid{grid-template-columns:1fr}
+
+  .professional-section{
+    padding:42px 23px;
+    border-radius:22px;
+  }
+
+  .professional-section h3{font-size:37px}
+
+  .professional-section p{
+    font-size:12px;
+    line-height:1.9;
+  }
+
+  .result-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .result-actions a,
+  .result-actions button{
+    width:100%;
+  }
+
+  .footer{padding:48px 20px 25px}
+}
+
+/* SMALL MOBILE */
+
+@media(max-width:390px){
+  .brand{gap:10px}
+  .logo-symbol{width:50px;height:50px}
+  .brand-name{font-size:22px;letter-spacing:2px}
+  .brand-subtitle{font-size:7px}
+  .hero h1{font-size:39px}
+  .question-card h3{font-size:26px}
+  .nav-button{padding:12px 11px}
+}
+
+/* PRINT / PDF */
+
+@page{
+  size:A4;
+  margin:14mm;
+}
+
+@media print{
+  html,body{
+    background:#FFFFFF!important;
+    color:#382C44!important;
+    print-color-adjust:exact!important;
+    -webkit-print-color-adjust:exact!important;
+  }
+
+  body{
+    font-size:10pt;
+  }
+
+  .background-effects,
+  .header,
+  .hero,
+  .intro-wrap,
+  .section,
+  .audit-intro,
+  .audit-area,
+  .footer,
+  .result-actions{
+    display:none!important;
+  }
+
+  .container{
+    width:100%;
+    max-width:100%;
+  }
+
+  .results{
+    display:block!important;
+    padding:0!important;
+  }
+
+  .results-header{
+    margin-bottom:22px;
+  }
+
+  .results-header h2{
+    font-size:31pt;
+  }
+
+  .results-header p{
+    font-size:9pt;
+  }
+
+  .result-card{
+    display:block!important;
+    background:#FFFFFF!important;
+    border:1px solid #D8C59F!important;
+    border-radius:13px!important;
+    padding:22px!important;
+    margin-bottom:16px!important;
+    box-shadow:none!important;
+    break-inside:auto;
+  }
+
+  .score-layout{
+    grid-template-columns:190px 1fr!important;
+    gap:20px!important;
+  }
+
+  .score-circle{
+    display:grid!important;
+    width:170px!important;
+    height:170px!important;
+    margin:10px auto!important;
+    break-inside:avoid;
+  }
+
+  .score-svg{
+    display:block!important;
+    overflow:visible!important;
+    print-color-adjust:exact!important;
+    -webkit-print-color-adjust:exact!important;
+  }
+
+  .score-track{
+    stroke:#EAE2F1!important;
+  }
+
+  .score-progress{
+    stroke:#67478E!important;
+  }
+
+  .score-number{
+    font-size:48pt!important;
+  }
+
+  .score-summary h3{
+    font-size:24pt!important;
+  }
+
+  .score-summary p,
+  .dimension-description,
+  .insight p,
+  .recommendation p{
+    font-size:8.5pt!important;
+  }
+
+  .dimension-item,
+  .insight,
+  .recommendation,
+  .professional-section{
+    break-inside:avoid!important;
+  }
+
+  .dimension-track,
+  .dimension-fill{
+    print-color-adjust:exact!important;
+    -webkit-print-color-adjust:exact!important;
+  }
+
+  .dimension-track{background:#EEE8F3!important}
+
+  .dimension-fill{
+    background:linear-gradient(90deg,#49316F,#9478B8,#C5A46D)!important;
+  }
+
+  .professional-section{
+    margin-top:15px!important;
+    padding:25px!important;
+    background:#F5F0F9!important;
+    border:1px solid #D8C59F!important;
+    border-radius:13px!important;
+    print-color-adjust:exact!important;
+    -webkit-print-color-adjust:exact!important;
+  }
+
+  .professional-section h3{
+    font-size:25pt!important;
+  }
+
+  .professional-section p{
+    font-size:9pt!important;
+  }
+
+  .insight,
+  .recommendation{
+    background:#FBF9FD!important;
+    print-color-adjust:exact!important;
+    -webkit-print-color-adjust:exact!important;
+  }
+
+  .disclaimer{
+    font-size:7.5pt!important;
+    color:#857B90!important;
+  }
+
+  .eyebrow{
+    font-size:7pt!important;
+  }
 }
 
 @media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{
-    scroll-behavior:auto!important;
+  *,
+  *:before,
+  *:after{
     animation-duration:.01ms!important;
     animation-iteration-count:1!important;
     transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
   }
-}
-
-/* PRINT */
-
-@media print{
-  body{background:white}
-  .header,.hero,.intro-panel,.understanding,.audit-area,.footer,.result-actions{display:none!important}
-  .main{max-width:100%;padding:10px}
-  .result-card{box-shadow:none;border:0}
-  .professional-section,.cta{break-inside:avoid}
-  .cta{background:white;border:1px solid #DDD;color:var(--dark)}
-  .cta p{color:#555}
-  .recommendation,.insight{break-inside:avoid}
 }
 </style>
 </head>
 
 <body>
 
-<div class="ambient a"></div>
-<div class="ambient b"></div>
-<div class="ambient c"></div>
+<div class="background-effects" aria-hidden="true">
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+</div>
+
+<!-- HEADER -->
 
 <header class="header">
-  <div class="header-inner">
-    <a class="brand-link" href="https://marianapastean.my.canva.site/mariana-pastean-portfolio" aria-label="ARVANA Digital Marketing">
-      <img class="logo"
-        src="./Logo%20-%20ARVANA%20Digital%20Marketing%20(1).png"
-        alt="ARVANA Digital Marketing"
-        onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';">
-      <span id="logoFallback" class="logo-fallback">ARVANA</span>
-    </a>
-    <div class="header-note">
-      Strategic Marketing
-      <span>&amp; Brand Development</span>
+  <a class="brand" href="#" aria-label="ARVANA Digital Marketing">
+    <!-- Logo SVG integrat: poate fi înlocuit ulterior cu logo-ul final -->
+    <svg class="logo-symbol" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="ARVANA logo">
+      <defs>
+        <linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#302044"/>
+          <stop offset="100%" stop-color="#8064A5"/>
+        </linearGradient>
+        <linearGradient id="logoGold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#E5D5B5"/>
+          <stop offset="100%" stop-color="#C5A46D"/>
+        </linearGradient>
+      </defs>
+      <path d="M17 78 L47 17 L77 78 L64 78 L47 42 L30 78 Z" fill="url(#logoGradient)"/>
+      <path d="M12 62 C34 73 56 63 83 35 C74 61 49 83 12 62Z" fill="url(#logoGold)"/>
+    </svg>
+
+    <div>
+      <div class="brand-name">ARVANA</div>
+      <div class="brand-subtitle">DIGITAL MARKETING</div>
     </div>
+  </a>
+
+  <div class="header-label">
+    Strategic Marketing<br>& Brand Development
   </div>
 </header>
 
-<section class="hero">
-  <div class="orb orb-one"></div>
-  <div class="orb orb-two"></div>
-  <div class="orb orb-three"></div>
+<!-- HERO -->
 
+<section class="hero">
   <div class="hero-inner">
-    <div class="eyebrow">Un instrument pentru businessul tău</div>
-    <h1>Înainte de marketing,<br>ai nevoie de <em>claritate.</em></h1>
+    <div class="eyebrow">ARVANA · BRAND & MARKETING AUDIT</div>
+
+    <h1>
+      Înțelege-ți<br>
+      businessul.<br>
+      <span>Construiește cu direcție.</span>
+    </h1>
 
     <p class="hero-description">
-      Un business se dezvoltă mai bine atunci când îi cunoști activitatea,
-      publicul și valoarea pe care o oferă. Înainte să alegi cum comunici,
-      unde investești sau cum îți promovezi brandul, este important să înțelegi
-      <strong>ce reprezintă businessul tău și în ce direcție vrei să îl dezvolți.</strong>
+      Un brand puternic începe cu o înțelegere clară a propriei activități.
+      Atunci când știi ce oferi, cui te adresezi și ce te diferențiază,
+      poți lua decizii mai bune și poți construi o comunicare care are sens.
+      Descoperă cât de bine este conturată fundația brandului și a marketingului tău.
     </p>
 
-    <div class="hero-divider"></div>
-    <p class="hero-statement">Claritatea este primul pas către un marketing construit cu sens.</p>
-
-    <div class="hero-meta">
-      <div class="meta-item"><span class="meta-dot"></span>15 întrebări</div>
-      <div class="meta-item"><span class="meta-dot"></span>5 dimensiuni</div>
-      <div class="meta-item"><span class="meta-dot"></span>Raport personalizat</div>
-      <div class="meta-item"><span class="meta-dot"></span>Gratuit</div>
+    <div class="hero-note">
+      Un instrument gratuit pentru businessul tău
     </div>
   </div>
 </section>
 
-<main class="main">
+<!-- INTRO PANEL -->
 
-  <!-- INTRO BOX -->
-  <section class="intro-panel">
-    <div class="decor-ring"></div>
-    <div class="intro-content">
-      <div class="eyebrow">Primul pas către o direcție mai bună</div>
-      <h2>Începe cu o perspectivă mai clară.</h2>
+<section class="intro-wrap">
+  <div class="container">
+    <div class="intro-panel reveal">
+      <div class="intro-content">
+        <div class="eyebrow">O perspectivă mai clară</div>
+
+        <h2>Începe cu o perspectivă mai clară.</h2>
+
+        <p>
+          Evaluează fundația brandului și a activităților tale de marketing.
+          Răspunde sincer, în funcție de situația actuală a businessului.
+          Nu există răspunsuri corecte sau greșite. Important este să privești
+          obiectiv modul în care funcționează astăzi activitatea ta.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIX FEATURE BOXES -->
+
+<section class="section">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <div class="eyebrow">Ce vei descoperi</div>
+      <h2>O imagine de ansamblu asupra brandului tău.</h2>
       <p>
-        Evaluează fundația brandului și a activităților tale de marketing.
-        Răspunde sincer, în funcție de situația actuală a businessului.
-        Înțelege ce funcționează, unde există oportunități și ce merită
-        să devină prioritatea ta.
+        Evaluarea analizează șase perspective esențiale ale dezvoltării
+        unui business, reunite în cinci dimensiuni de evaluare.
       </p>
     </div>
-  </section>
 
-  <!-- SIX EDITORIAL BOXES -->
-  <section class="understanding">
-    <div class="section-heading">
-      <div class="eyebrow">Înțelege înainte să acționezi</div>
-      <h2>Un business cunoscut înseamnă un business mai bine construit.</h2>
-      <p>Șase repere care te ajută să privești activitatea ta dintr-o perspectivă mai clară.</p>
-    </div>
-
-    <div class="feature-list">
+    <div class="features">
 
       <article class="feature-box light">
-        <div class="feature-copy">
-          <span class="feature-kicker">Primul reper</span>
-          <h3>Cunoaște-ți activitatea.</h3>
-          <p>Înțelege ce faci, ce valoare aduci și care sunt obiectivele reale ale businessului tău. O direcție bună începe cu o imagine clară asupra prezentului.</p>
-        </div>
-        <div class="feature-number">01</div>
+        <div class="feature-icon">01</div>
+        <h3>Poziționare</h3>
+        <p>
+          Cât de bine îți cunoști publicul, oferta, valoarea pe care o aduci
+          și diferențele care te fac relevant în piață?
+        </p>
+        <div class="feature-decoration"></div>
       </article>
 
       <article class="feature-box dark">
-        <div class="feature-copy">
-          <span class="feature-kicker">Al doilea reper</span>
-          <h3>Înțelege-ți publicul.</h3>
-          <p>Descoperă cui te adresezi, ce nevoi are și ce îl determină să aleagă un produs sau un serviciu. Comunicarea relevantă pornește de la oameni.</p>
-        </div>
-        <div class="feature-number">02</div>
+        <div class="feature-icon">02</div>
+        <h3>Identitate de brand</h3>
+        <p>
+          Identitatea vizuală, personalitatea și experiența oferită transmit
+          aceeași imagine și aceleași valori?
+        </p>
+        <div class="feature-decoration"></div>
       </article>
 
       <article class="feature-box light">
-        <div class="feature-copy">
-          <span class="feature-kicker">Al treilea reper</span>
-          <h3>Clarifică-ți oferta.</h3>
-          <p>Definește ce oferi, ce problemă rezolvi și de ce soluția ta contează. O ofertă bine înțeleasă este mai ușor de comunicat și de diferențiat.</p>
-        </div>
-        <div class="feature-number">03</div>
+        <div class="feature-icon">03</div>
+        <h3>Comunicare</h3>
+        <p>
+          Mesajele tale sunt clare, consecvente și relevante pentru oamenii
+          cărora dorești să te adresezi?
+        </p>
+        <div class="feature-decoration"></div>
       </article>
 
       <article class="feature-box dark">
-        <div class="feature-copy">
-          <span class="feature-kicker">Al patrulea reper</span>
-          <h3>Construiește un brand coerent.</h3>
-          <p>Identitatea vizuală, personalitatea și valorile brandului trebuie să transmită aceeași idee. Coerența creează recunoaștere și încredere.</p>
-        </div>
-        <div class="feature-number">04</div>
+        <div class="feature-icon">04</div>
+        <h3>Strategie de conținut</h3>
+        <p>
+          Conținutul este construit în jurul unor obiective și direcții clare
+          sau publici fără un plan bine definit?
+        </p>
+        <div class="feature-decoration"></div>
       </article>
 
       <article class="feature-box light">
-        <div class="feature-copy">
-          <span class="feature-kicker">Al cincilea reper</span>
-          <h3>Comunică cu intenție.</h3>
-          <p>Fiecare mesaj și fiecare material de conținut ar trebui să aibă un rol. Nu este vorba doar despre a fi prezent, ci despre a transmite ceva relevant.</p>
-        </div>
-        <div class="feature-number">05</div>
+        <div class="feature-icon">05</div>
+        <h3>Strategie de marketing</h3>
+        <p>
+          Ai obiective măsurabile, alegi canalele potrivite și urmărești
+          rezultatele acțiunilor tale?
+        </p>
+        <div class="feature-decoration"></div>
       </article>
 
       <article class="feature-box dark">
-        <div class="feature-copy">
-          <span class="feature-kicker">Al șaselea reper</span>
-          <h3>Alege o direcție strategică.</h3>
-          <p>Conectează obiectivele, poziționarea, comunicarea și acțiunile de marketing într-un plan coerent. Astfel, deciziile au un scop și pot fi evaluate.</p>
-        </div>
-        <div class="feature-number">06</div>
+        <div class="feature-icon">06</div>
+        <h3>Direcție și dezvoltare</h3>
+        <p>
+          Deciziile de marketing sunt conectate la obiectivele businessului
+          și susțin dezvoltarea sa pe termen lung?
+        </p>
+        <div class="feature-decoration"></div>
       </article>
 
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- AUDIT -->
-  <section class="audit-area" id="audit">
-    <div class="audit-heading">
-      <div class="eyebrow">Autoevaluare</div>
-      <h2>Descoperă unde te afli.</h2>
-      <p>Nu există răspunsuri corecte sau greșite. Contează perspectiva ta reală.</p>
+<!-- AUDIT INTRODUCTION -->
+
+<section class="audit-intro">
+  <div class="container">
+    <div class="audit-intro-card reveal">
+      <div class="eyebrow">Primul pas către o direcție mai bună</div>
+
+      <h2>Descoperă unde te afli acum.</h2>
+
+      <p>
+        Răspunde la 15 întrebări despre modul în care îți construiești
+        brandul și îți desfășori activitățile de marketing.
+        La final vei primi un scor orientativ, o evaluare pe fiecare
+        dimensiune și recomandări pentru zonele care merită atenția ta.
+      </p>
+
+      <div style="margin-top:30px">
+        <button class="primary-btn" id="startBtn" onclick="startAudit()">
+          Începe evaluarea <span>→</span>
+        </button>
+      </div>
+
+      <p style="margin-top:18px;font-size:10px;letter-spacing:1px">
+        15 întrebări · Aproximativ 5–7 minute · Gratuit
+      </p>
     </div>
+  </div>
+</section>
+
+<!-- AUDIT QUESTIONS -->
+
+<section class="audit-area" id="auditArea">
+  <div class="container">
 
     <div class="progress-panel">
       <div class="progress-top">
-        <span class="progress-label" id="progressText">Întrebarea 1 din 15</span>
-        <span class="progress-percent" id="progressPercent">0% completat</span>
+        <span>Progresul evaluării</span>
+        <span id="progressText">0 din 15</span>
       </div>
       <div class="progress-track">
         <div class="progress-fill" id="progressFill"></div>
       </div>
     </div>
 
+    <div class="audit-heading">
+      <div class="eyebrow">Evaluarea ARVANA</div>
+      <h2>Răspunde cu sinceritate.</h2>
+      <p>
+        Alege varianta care descrie cel mai bine situația actuală
+        a businessului tău.
+      </p>
+    </div>
+
     <div id="questionContainer"></div>
 
-    <div class="navigation">
-      <button class="btn btn-light" id="prevBtn" type="button" disabled>← Înapoi</button>
-      <button class="btn btn-primary" id="nextBtn" type="button" disabled>Următoarea întrebare →</button>
-    </div>
-    <div class="error" id="errorMessage" role="alert">Selectează un răspuns pentru a continua.</div>
-  </section>
+  </div>
+</section>
 
-  <!-- RESULTS -->
-  <section id="results" class="results hidden">
-    <div class="result-card">
-      <div class="result-heading">
-        <div class="eyebrow">Rezultatul evaluării</div>
-        <h2>Imaginea de ansamblu.</h2>
-        <p>ARVANA BRAND &amp; MARKETING AUDIT</p>
-      </div>
+<!-- RESULTS -->
 
-      <div class="score-circle" id="scoreCircle">
-        <div class="score-content">
-          <span class="score-number" id="overallScore">0</span>
-          <span class="score-out-of">din 100 puncte</span>
-        </div>
-      </div>
+<section class="results" id="results">
+  <div class="container">
 
-      <div class="result-level-wrap">
-        <span class="result-level" id="resultLevel"></span>
-      </div>
-      <p class="result-summary" id="resultSummary"></p>
-
-      <h3 class="section-title">Evaluarea pe dimensiuni</h3>
-      <div id="dimensionResults"></div>
-
-      <div class="insight-grid">
-        <div class="insight">
-          <small>Punctul forte</small>
-          <strong id="strongestArea"></strong>
-        </div>
-        <div class="insight">
-          <small>Prioritatea de îmbunătățire</small>
-          <strong id="weakestArea"></strong>
-        </div>
-      </div>
-
-      <h3 class="section-title">Direcții de îmbunătățire</h3>
-      <div id="recommendations"></div>
-
-      <p class="disclaimer">
-        Acest raport este generat pe baza răspunsurilor oferite și are scop orientativ.
-        Reprezintă o autoevaluare, nu un audit profesional complet, o analiză de piață
-        sau o evaluare comparativă cu alte businessuri.
+    <div class="results-header">
+      <div class="eyebrow">ARVANA · Rezultatul evaluării</div>
+      <h2>O perspectivă asupra brandului tău.</h2>
+      <p>
+        Acesta este punctul de plecare pentru decizii mai clare
+        și o dezvoltare mai coerentă.
       </p>
+    </div>
 
-      <div class="result-actions">
-        <button class="btn btn-primary" id="copyReportBtn" type="button">Copiază raportul</button>
-        <button class="btn btn-light" id="pdfBtn" type="button">Salvează PDF</button>
-        <button class="btn btn-light" id="restartBtn" type="button">Reia evaluarea</button>
+    <!-- GENERAL SCORE -->
+
+    <div class="result-card">
+      <div class="score-layout">
+
+        <div class="score-circle" id="scoreCircle">
+          <svg class="score-svg" viewBox="0 0 180 180" role="img" aria-label="Graficul scorului general">
+            <circle class="score-track" cx="90" cy="90" r="78"/>
+            <circle class="score-progress" id="scoreArc" cx="90" cy="90" r="78"/>
+          </svg>
+
+          <div class="score-content">
+            <span class="score-number" id="overallScore">0</span>
+            <span class="score-out-of">din 100 puncte</span>
+          </div>
+        </div>
+
+        <div class="score-summary">
+          <h3 id="scoreTitle">Rezultatul tău</h3>
+          <p id="scoreDescription"></p>
+          <div class="score-level" id="scoreLevel"></div>
+        </div>
+
       </div>
     </div>
+
+    <!-- DIMENSION SCORES -->
+
+    <div class="result-card">
+      <h3 class="result-section-title">Evaluarea pe dimensiuni</h3>
+      <div class="dimension-list" id="dimensionResults"></div>
+    </div>
+
+    <!-- INSIGHTS -->
+
+    <div class="result-card">
+      <h3 class="result-section-title">Ce îți spune rezultatul?</h3>
+      <div class="insights-grid" id="insights"></div>
+    </div>
+
+    <!-- RECOMMENDATIONS -->
+
+    <div class="result-card">
+      <h3 class="result-section-title">Direcții de îmbunătățire</h3>
+      <p style="color:var(--muted);font-size:12px;line-height:1.8;margin-top:-12px;margin-bottom:25px">
+        Aceste recomandări sunt orientative și se bazează pe răspunsurile tale.
+      </p>
+      <div class="recommendations" id="recommendations"></div>
+    </div>
+
+    <!-- PROFESSIONAL CONSULTATION -->
 
     <section class="professional-section">
-      <div class="professional-content">
-        <div class="eyebrow">Dincolo de autoevaluare</div>
-        <h3>Uneori, următorul pas nu este să faci mai mult. Este să înțelegi mai bine ce ai de făcut.</h3>
-        <p>Rezultatele acestui audit îți oferă un prim reper. Însă fiecare business are propriul context: obiective, resurse, public, concurență și provocări.</p>
-        <p><strong>O discuție cu un profesionist în marketing</strong> te poate ajuta să privești aceste elemente în ansamblu, să identifici cauzele din spatele problemelor și să stabilești ce merită prioritizat.</p>
-        <p>Nu orice business are nevoie de mai mult conținut, de încă o platformă sau de o campanie nouă. Uneori, are nevoie de o poziționare mai clară, de o ofertă mai bine definită sau de o strategie care să conecteze toate acțiunile de marketing.</p>
-        <p class="professional-note">O perspectivă profesionistă nu înlocuiește cunoașterea propriului business. Te ajută să o transformi într-o direcție mai clară și în decizii mai bine fundamentate.</p>
-        <a class="btn btn-primary" href="https://marianapastean.my.canva.site/mariana-pastean-portfolio" target="_blank" rel="noopener noreferrer">Descoperă serviciile ARVANA →</a>
+      <div class="eyebrow">Dincolo de evaluare</div>
+
+      <h3>Uneori, următorul pas este să privești businessul dintr-o perspectivă nouă.</h3>
+
+      <p>
+        Un instrument de autoevaluare te poate ajuta să identifici anumite
+        aspecte ale activității tale. Totuși, un rezultat nu surprinde
+        întotdeauna toate provocările, oportunitățile sau particularitățile
+        unui business.
+      </p>
+
+      <p>
+        <span class="professional-highlight">O discuție cu un profesionist în marketing</span>
+        poate aduce claritate asupra poziționării, identității de brand,
+        comunicării și direcției de dezvoltare. Împreună, aceste elemente
+        pot fi analizate în contextul real al activității tale și transformate
+        într-o direcție de acțiune adaptată obiectivelor businessului.
+      </p>
+
+      <p>
+        La ARVANA, abordarea pornește de la înțelegerea businessului,
+        continuă cu strategia și se concretizează în decizii de brand
+        și comunicare cu un scop clar.
+      </p>
+
+      <div style="margin-top:28px">
+        <a class="primary-btn" href="https://marianapastean.my.canva.site/mariana-pastean-portfolio" target="_blank" rel="noopener">
+          Descoperă portofoliul ARVANA <span>→</span>
+        </a>
       </div>
     </section>
 
-    <section class="cta">
-      <div class="eyebrow">ARVANA Digital Marketing</div>
-      <h3>Direcție clară. Branduri cu valoare.</h3>
-      <p>Dacă simți că businessul tău are nevoie de mai multă claritate în strategie, branding sau comunicare, descoperă abordarea ARVANA.</p>
-      <a class="btn" href="https://marianapastean.my.canva.site/mariana-pastean-portfolio" target="_blank" rel="noopener noreferrer">Descoperă ARVANA →</a>
-    </section>
-  </section>
-</main>
+    <!-- ACTIONS -->
+
+    <div class="result-actions">
+      <button class="primary-btn" onclick="downloadPDF()">
+        Salvează raportul PDF
+      </button>
+
+      <button class="secondary-btn" onclick="copyReport()">
+        Copiază rezultatul
+      </button>
+
+      <button class="secondary-btn" onclick="restartAudit()">
+        Reia evaluarea
+      </button>
+    </div>
+
+    <p class="disclaimer">
+      ARVANA BRAND & MARKETING AUDIT este un instrument gratuit de
+      autoevaluare orientativă. Rezultatul se bazează exclusiv pe
+      răspunsurile oferite și nu reprezintă un audit profesional,
+      o analiză de piață sau o garanție a performanței businessului.
+      Recomandările au caracter informativ.
+    </p>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
 
 <footer class="footer">
-  <img src="./Logo%20-%20ARVANA%20Digital%20Marketing%20(1).png" alt="ARVANA Digital Marketing" onerror="this.style.display='none';">
-  <p>Direcție clară. Branduri cu valoare.</p>
+  <div class="footer-brand">ARVANA</div>
+  <div class="footer-subtitle">DIGITAL MARKETING</div>
+  <div class="footer-slogan">Direcție clară. Branduri cu valoare.</div>
+
+  <a class="footer-link" href="https://marianapastean.my.canva.site/mariana-pastean-portfolio" target="_blank" rel="noopener">
+    Explorează portofoliul
+  </a>
+
+  <div class="footer-copy">
+    ARVANA Digital Marketing · Strategic Marketing & Brand Development<br>
+    © <span id="year"></span> ARVANA. Toate drepturile rezervate.
+  </div>
 </footer>
 
 <script>
-/* CONFIGURARE AUDIT */
+/* QUESTION DATA */
 
-const dimensions=[
+const questions = [
+  {
+    dimension:"Poziționare",
+    text:"Cât de clar ai definit publicul căruia te adresezi?",
+    options:[
+      "Nu am definit încă un public specific.",
+      "Am o idee generală despre clienții mei.",
+      "Cunosc principalele caracteristici ale publicului meu.",
+      "Am definit clar publicul și nevoile sale.",
+      "Am o imagine detaliată și actualizată asupra publicului meu."
+    ]
+  },
+  {
+    dimension:"Poziționare",
+    text:"Cât de clară este oferta ta și valoarea pe care o oferi?",
+    options:[
+      "Oferta mea nu este încă bine definită.",
+      "Știu ce ofer, dar îmi este greu să explic valoarea.",
+      "Pot descrie oferta și beneficiile principale.",
+      "Oferta este clară și conectată la nevoile clienților.",
+      "Oferta și valoarea sunt foarte bine definite și diferențiate."
+    ]
+  },
+  {
+    dimension:"Poziționare",
+    text:"Cât de bine știi ce diferențiază businessul tău de alternativele din piață?",
+    options:[
+      "Nu am identificat diferențiatorii.",
+      "Am câteva idei, dar nu sunt clar conturate.",
+      "Cunosc câteva elemente care mă diferențiază.",
+      "Am o diferențiere clară și relevantă.",
+      "Diferențierea este bine definită și susținută prin activitatea mea."
+    ]
+  },
+  {
+    dimension:"Identitate de brand",
+    text:"Cât de coerentă este identitatea vizuală în toate materialele tale?",
+    options:[
+      "Nu am o identitate vizuală stabilită.",
+      "Folosesc elemente vizuale diferite, fără reguli clare.",
+      "Există câteva elemente vizuale constante.",
+      "Am o identitate vizuală coerentă.",
+      "Identitatea este documentată și aplicată consecvent."
+    ]
+  },
+  {
+    dimension:"Identitate de brand",
+    text:"Cât de clară este personalitatea brandului tău?",
+    options:[
+      "Nu am definit personalitatea brandului.",
+      "Am câteva idei despre cum vreau să fie perceput.",
+      "Am identificat câteva valori și trăsături.",
+      "Personalitatea și valorile sunt clar definite.",
+      "Personalitatea brandului este clară și se reflectă în toate interacțiunile."
+    ]
+  },
+  {
+    dimension:"Identitate de brand",
+    text:"Cât de bine reflectă experiența oferită de business promisiunea brandului?",
+    options:[
+      "Nu am analizat această legătură.",
+      "Există diferențe între ceea ce comunic și ceea ce ofer.",
+      "În general, experiența este apropiată de promisiune.",
+      "Experiența susține în mod consecvent promisiunea.",
+      "Fiecare etapă a experienței este gândită în acord cu brandul."
+    ]
+  },
+  {
+    dimension:"Comunicare",
+    text:"Cât de ușor înțelege publicul ce oferi și de ce ar trebui să te aleagă?",
+    options:[
+      "Mesajele mele nu transmit suficient de clar oferta.",
+      "Uneori este nevoie de explicații suplimentare.",
+      "Mesajele sunt relativ clare.",
+      "Comunicarea explică bine oferta și beneficiile.",
+      "Mesajele sunt clare, diferențiate și ușor de reținut."
+    ]
+  },
+  {
+    dimension:"Comunicare",
+    text:"Cât de consecvent comunici pe canalele pe care ești prezent?",
+    options:[
+      "Comunic doar ocazional.",
+      "Public fără un ritm sau o direcție constantă.",
+      "Am o anumită regularitate.",
+      "Am un stil și un ritm de comunicare consecvente.",
+      "Comunicarea este planificată și coerentă pe toate canalele relevante."
+    ]
+  },
+  {
+    dimension:"Comunicare",
+    text:"Cât de relevante sunt mesajele tale pentru nevoile publicului?",
+    options:[
+      "Nu cunosc suficient nevoile publicului.",
+      "Comunic mai ales despre produsele sau serviciile mele.",
+      "Abordez uneori problemele și interesele publicului.",
+      "Mesajele sunt construite în jurul nevoilor publicului.",
+      "Comunicarea pornește constant de la insight-uri despre public."
+    ]
+  },
+  {
+    dimension:"Strategie de conținut",
+    text:"Ai stabilit piloni sau teme principale pentru conținutul publicat?",
+    options:[
+      "Nu am stabilit teme de conținut.",
+      "Public în funcție de ideile care îmi vin pe moment.",
+      "Am câteva teme recurente.",
+      "Am piloni de conținut definiți și relevanți.",
+      "Pilonii sunt documentați și conectați la obiectivele businessului."
+    ]
+  },
+  {
+    dimension:"Strategie de conținut",
+    text:"Cât de mult este planificat conținutul în funcție de obiective?",
+    options:[
+      "Nu planific conținutul.",
+      "Planific doar ocazional.",
+      "Am un plan simplu de publicare.",
+      "Conținutul este planificat în funcție de obiective.",
+      "Fiecare tip de conținut are un rol clar în parcursul clientului."
+    ]
+  },
+  {
+    dimension:"Strategie de conținut",
+    text:"Analizezi performanța conținutului publicat?",
+    options:[
+      "Nu urmăresc rezultatele.",
+      "Mă uit ocazional la aprecieri și vizualizări.",
+      "Urmăresc câțiva indicatori de bază.",
+      "Analizez periodic indicatorii relevanți.",
+      "Folosesc datele pentru a îmbunătăți constant strategia de conținut."
+    ]
+  },
+  {
+    dimension:"Strategie de marketing",
+    text:"Ai obiective de marketing clare și măsurabile?",
+    options:[
+      "Nu am stabilit obiective de marketing.",
+      "Am obiective generale, fără indicatori.",
+      "Am câteva obiective și indicatori de bază.",
+      "Obiectivele sunt clare și măsurabile.",
+      "Obiectivele sunt prioritizate, măsurate și revizuite periodic."
+    ]
+  },
+  {
+    dimension:"Strategie de marketing",
+    text:"Cât de bine alegi canalele de marketing potrivite businessului tău?",
+    options:[
+      "Nu am o strategie pentru alegerea canalelor.",
+      "Folosesc canale doar pentru că sunt populare.",
+      "Am ales câteva canale care par potrivite.",
+      "Canalele sunt alese în funcție de public și obiective.",
+      "Am o strategie clară de distribuție și folosesc eficient canalele relevante."
+    ]
+  },
+  {
+    dimension:"Strategie de marketing",
+    text:"Cât de des analizezi și optimizezi activitățile de marketing?",
+    options:[
+      "Nu analizez activitățile de marketing.",
+      "Fac schimbări doar când apar probleme.",
+      "Revizuiesc ocazional rezultatele.",
+      "Analizez periodic și ajustez acțiunile.",
+      "Am un proces constant de analiză, învățare și optimizare."
+    ]
+  }
+];
+
+const dimensions = [
   {
     name:"Poziționare",
-    recommendations:[
-      "Definește cât mai precis publicul căruia i te adresezi. Identifică nevoile, provocările și motivațiile clienților potriviți.",
-      "Clarifică oferta: ce problemă rezolvă, ce valoare oferă și de ce ar alege un client businessul tău.",
-      "Identifică elementele care diferențiază businessul tău. Construiește un mesaj de poziționare simplu, relevant și ușor de înțeles."
-    ]
+    start:0,
+    end:3,
+    description:"Claritatea publicului, a ofertei și a diferențierii."
   },
   {
     name:"Identitate de brand",
-    recommendations:[
-      "Stabilește un sistem vizual coerent: logo, paletă cromatică, tipografie și reguli de utilizare. Aplică-l consecvent în toate materialele.",
-      "Definește personalitatea brandului și valorile pe care dorești să le transmită. Acestea trebuie să se reflecte în limbaj, design și comportament.",
-      "Analizează experiența oferită clientului în toate punctele de contact: website, social media, comunicare și interacțiunea directă."
-    ]
+    start:3,
+    end:6,
+    description:"Coerența identității vizuale, a personalității și a experienței."
   },
   {
     name:"Comunicare",
-    recommendations:[
-      "Construiește un mesaj central care explică limpede cine ești, ce oferi și cui te adresezi. Elimină formulările care nu transmit valoare concretă.",
-      "Creează reguli de comunicare și un ton al vocii recognoscibil. Asigură-te că mesajele sunt coerente pe toate canalele.",
-      "Pornește de la întrebările și preocupările publicului. Comunică beneficii, soluții și perspective relevante."
-    ]
+    start:6,
+    end:9,
+    description:"Claritatea, consecvența și relevanța mesajelor."
   },
   {
     name:"Strategie de conținut",
-    recommendations:[
-      "Definește 3–5 piloni de conținut care susțin poziționarea brandului și răspund intereselor publicului tău.",
-      "Planifică fiecare material în funcție de un obiectiv: vizibilitate, educare, încredere, interacțiune sau conversie.",
-      "Urmărește performanța conținutului prin indicatori relevanți. Analizează ce funcționează și ajustează planul în consecință."
-    ]
+    start:9,
+    end:12,
+    description:"Planificarea, obiectivele și evaluarea conținutului."
   },
   {
     name:"Strategie de marketing",
-    recommendations:[
-      "Stabilește obiective de marketing concrete și măsurabile. Leagă activitățile de marketing de obiectivele reale ale businessului.",
-      "Alege canalele în funcție de public, resurse și obiective. Nu este necesar să fii prezent peste tot dacă nu poți susține o comunicare relevantă.",
-      "Construiește un proces periodic de analiză. Evaluează rezultatele, identifică blocajele și ajustează acțiunile în funcție de date."
-    ]
+    start:12,
+    end:15,
+    description:"Obiectivele, canalele și optimizarea activităților."
   }
 ];
 
-const questions=[
-  {dimension:0,title:"Știi exact cui se adresează businessul tău?",description:"Ai definit publicul țintă prin nevoi, comportamente și caracteristici relevante?"},
-  {dimension:0,title:"Poți explica simplu ce valoare oferă businessul tău?",description:"Este clar ce problemă rezolvi și de ce oferta ta este relevantă?"},
-  {dimension:0,title:"Știi ce diferențiază brandul tău de alternativele existente?",description:"Poți identifica motive concrete pentru care un client ar trebui să te aleagă?"},
-  {dimension:1,title:"Identitatea vizuală este consecventă pe toate canalele?",description:"Logo-ul, culorile, fonturile și materialele transmit aceeași direcție vizuală?"},
-  {dimension:1,title:"Brandul tău are o personalitate și valori clar definite?",description:"Știi ce dorești să transmită brandul și cum vrei să fie perceput?"},
-  {dimension:1,title:"Experiența oferită clienților este coerentă?",description:"Există continuitate între promisiunea brandului și experiența reală?"},
-  {dimension:2,title:"Mesajele tale explică limpede ce oferi și cui te adresezi?",description:"Un potențial client poate înțelege rapid valoarea serviciilor sau produselor tale?"},
-  {dimension:2,title:"Comunicarea brandului este consecventă?",description:"Tonul vocii și mesajele sunt recognoscibile pe canalele folosite?"},
-  {dimension:2,title:"Conținutul tău răspunde nevoilor și întrebărilor publicului?",description:"Comunici subiecte relevante pentru potențialii clienți, nu doar despre businessul tău?"},
-  {dimension:3,title:"Ai piloni de conținut bine definiți?",description:"Știi care sunt principalele teme pe care trebuie să le abordezi?"},
-  {dimension:3,title:"Planifici conținutul în funcție de obiective?",description:"Fiecare material are un rol clar în comunicarea și marketingul businessului?"},
-  {dimension:3,title:"Analizezi rezultatele conținutului publicat?",description:"Urmărești indicatori și folosești concluziile pentru a îmbunătăți conținutul?"},
-  {dimension:4,title:"Ai obiective de marketing clare și măsurabile?",description:"Știi ce rezultate urmărești și cum vei evalua progresul?"},
-  {dimension:4,title:"Ai ales canalele de marketing potrivite businessului tău?",description:"Canalele folosite sunt relevante pentru public și pentru obiectivele tale?"},
-  {dimension:4,title:"Analizezi și optimizezi periodic activitățile de marketing?",description:"Evaluezi rezultatele și adaptezi acțiunile în funcție de ceea ce observi?"}
-];
+const recommendations = {
+  "Poziționare":{
+    low:"Începe prin a clarifica publicul căruia te adresezi, problema pe care o rezolvi și valoarea concretă pe care o aduci. Analizează alternativele din piață și identifică diferențiatorii reali ai businessului.",
+    medium:"Revizuiește modul în care prezinți oferta și diferențierea. Testează dacă mesajele tale sunt înțelese corect de public și dacă reflectă beneficiile reale.",
+    high:"Consolidează poziționarea printr-o comunicare consecventă și verifică periodic dacă oferta rămâne relevantă pentru publicul vizat."
+  },
+  "Identitate de brand":{
+    low:"Definește elementele fundamentale ale brandului: valori, personalitate, direcție vizuală și reguli de utilizare. Construiește o identitate coerentă, care să susțină poziționarea.",
+    medium:"Uniformizează elementele vizuale și mesajele pe toate punctele de contact. Documentează regulile de bază pentru a păstra coerența.",
+    high:"Evaluează periodic experiența brandului și păstrează aceeași promisiune în toate interacțiunile cu publicul."
+  },
+  "Comunicare":{
+    low:"Clarifică mesajul principal al businessului. Explică simplu ce oferi, cui te adresezi și ce valoare aduci. Construiește o direcție de comunicare adaptată publicului.",
+    medium:"Lucrează la consecvența mesajelor și la adaptarea lor în funcție de canal și de etapa în care se află potențialul client.",
+    high:"Dezvoltă comunicarea prin mesaje diferențiate și urmărește reacțiile publicului pentru a identifica subiectele cu cea mai mare relevanță."
+  },
+  "Strategie de conținut":{
+    low:"Stabilește piloni de conținut și un calendar simplu. Fiecare material ar trebui să aibă un scop: informare, educare, încredere sau conversie.",
+    medium:"Conectează mai bine temele publicate la obiectivele businessului și urmărește indicatori relevanți, nu doar numărul de aprecieri.",
+    high:"Optimizează mixul de conținut în funcție de rezultate și dezvoltă formate care susțin diferitele etape ale parcursului clientului."
+  },
+  "Strategie de marketing":{
+    low:"Stabilește obiective măsurabile și alege canalele în funcție de public, resurse și obiective. Evită activitățile fără un scop clar.",
+    medium:"Introdu un proces periodic de analiză a rezultatelor și stabilește indicatori care te ajută să evaluezi eficiența acțiunilor.",
+    high:"Consolidează procesul de optimizare și prioritizează investițiile în canalele și acțiunile care contribuie la obiectivele businessului."
+  }
+};
 
-const scaleLabels=["Deloc","În mică măsură","Parțial","În mare măsură","Complet"];
-let answers=Array(questions.length).fill(null);
-let currentQuestion=0;
-let finalReport="";
+let answers = new Array(questions.length).fill(null);
+let currentQuestion = 0;
+let finalReport = null;
 
-const questionContainer=document.getElementById("questionContainer");
-const nextBtn=document.getElementById("nextBtn");
-const prevBtn=document.getElementById("prevBtn");
+/* RENDER QUESTIONS */
 
-/* ANIMAȚII LA SCROLL */
+function renderQuestions(){
+  const container = document.getElementById("questionContainer");
+  container.innerHTML = "";
 
-const revealObserver=new IntersectionObserver((entries,observer)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("revealed");
-      observer.unobserve(entry.target);
-    }
-  });
-},{threshold:.12});
+  questions.forEach((question,index)=>{
+    const card = document.createElement("div");
+    card.className = "question-card" + (index===currentQuestion ? " active" : "");
+    card.id = "question-" + index;
 
-document.querySelectorAll(".feature-box").forEach(box=>revealObserver.observe(box));
+    const category = document.createElement("div");
+    category.className = "question-category";
+    category.textContent = question.dimension + " · Întrebarea " + (index+1) + " din 15";
 
-/* AFIȘARE ÎNTREBĂRI */
+    const title = document.createElement("h3");
+    title.textContent = question.text;
 
-function renderQuestion(){
-  const question=questions[currentQuestion];
-  const dimension=dimensions[question.dimension];
-  const completed=answers.filter(value=>value!==null).length;
-  const percentage=Math.round(completed/questions.length*100);
+    const options = document.createElement("div");
+    options.className = "answer-options";
 
-  document.getElementById("progressText").textContent=
-    `Întrebarea ${currentQuestion+1} din ${questions.length}`;
-  document.getElementById("progressPercent").textContent=
-    `${percentage}% completat`;
-  document.getElementById("progressFill").style.width=`${percentage}%`;
+    question.options.forEach((option,optionIndex)=>{
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "answer-option" + (answers[index]===optionIndex+1 ? " selected" : "");
+      button.setAttribute("aria-pressed",answers[index]===optionIndex+1 ? "true" : "false");
 
-  questionContainer.innerHTML=`
-    <div class="question-card">
-      <div class="question-top">
-        <span class="dimension-tag">${dimension.name}</span>
-        <span class="question-index">${String(currentQuestion+1).padStart(2,"0")} / 15</span>
-      </div>
-      <h3 class="question-title">${question.title}</h3>
-      <p class="question-description">${question.description}</p>
-      <div class="scale">
-        ${scaleLabels.map((label,index)=>`
-          <button
-            type="button"
-            class="scale-option ${answers[currentQuestion]===index+1?"selected":""}"
-            data-value="${index+1}"
-            aria-pressed="${answers[currentQuestion]===index+1}"
-            aria-label="${index+1}: ${label}">
-            <strong>${index+1}</strong>
-            <span>${label}</span>
-          </button>
-        `).join("")}
-      </div>
-      <div class="scale-hint">
-        <span>1 · Nivel foarte scăzut</span>
-        <span>5 · Nivel foarte ridicat</span>
-      </div>
-    </div>
-  `;
+      const dot = document.createElement("span");
+      dot.className = "answer-dot";
+      dot.textContent = "✓";
 
-  questionContainer.querySelectorAll(".scale-option").forEach(button=>{
-    button.addEventListener("click",()=>{
-      answers[currentQuestion]=Number(button.dataset.value);
-      document.getElementById("errorMessage").style.display="none";
-      renderQuestion();
+      const label = document.createElement("span");
+      label.textContent = option;
+
+      button.appendChild(dot);
+      button.appendChild(label);
+
+      button.addEventListener("click",()=>{
+        answers[index] = optionIndex+1;
+        renderQuestions();
+      });
+
+      options.appendChild(button);
     });
+
+    const navigation = document.createElement("div");
+    navigation.className = "question-navigation";
+
+    const previous = document.createElement("button");
+    previous.className = "nav-button";
+    previous.type = "button";
+    previous.textContent = "← Înapoi";
+    previous.disabled = index===0;
+    previous.addEventListener("click",()=>goToQuestion(index-1));
+
+    const next = document.createElement("button");
+    next.className = "nav-button next";
+    next.type = "button";
+    next.textContent = index===questions.length-1 ? "Vezi rezultatul →" : "Continuă →";
+    next.disabled = answers[index]===null;
+    next.addEventListener("click",()=>{
+      if(index===questions.length-1){
+        generateResults();
+      }else{
+        goToQuestion(index+1);
+      }
+    });
+
+    navigation.appendChild(previous);
+    navigation.appendChild(next);
+
+    card.appendChild(category);
+    card.appendChild(title);
+    card.appendChild(options);
+    card.appendChild(navigation);
+
+    container.appendChild(card);
   });
 
-  prevBtn.disabled=currentQuestion===0;
-  nextBtn.disabled=answers[currentQuestion]===null;
-  nextBtn.textContent=currentQuestion===questions.length-1
-    ?"Vezi raportul →"
-    :"Următoarea întrebare →";
+  updateProgress();
 }
 
-/* CALCUL SCORURI */
+function updateProgress(){
+  const completed = answers.filter(a=>a!==null).length;
+  const percent = completed/questions.length*100;
 
-function calculateScores(){
-  return dimensions.map((dimension,index)=>{
-    const values=questions
-      .map((question,i)=>({dimension:question.dimension,answer:answers[i]}))
-      .filter(item=>item.dimension===index)
-      .map(item=>item.answer);
+  document.getElementById("progressText").textContent =
+    completed + " din 15";
 
-    const average=values.reduce((sum,value)=>sum+value,0)/values.length;
-    return Math.round(average/5*100);
+  document.getElementById("progressFill").style.width = percent + "%";
+}
+
+function goToQuestion(index){
+  if(index<0 || index>=questions.length)return;
+
+  currentQuestion = index;
+  renderQuestions();
+
+  document.getElementById("auditArea").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
   });
 }
 
-function getScoreLevel(score){
-  if(score<=39){
+function startAudit(){
+  answers = new Array(questions.length).fill(null);
+  currentQuestion = 0;
+
+  document.getElementById("results").classList.remove("active");
+  document.getElementById("auditArea").classList.add("active");
+
+  renderQuestions();
+
+  setTimeout(()=>{
+    document.getElementById("auditArea").scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+  },100);
+}
+
+/* SCORE CALCULATION */
+
+function getLevel(score){
+  if(score<40){
     return {
-      title:"Este nevoie de mai multă claritate",
-      summary:"Rezultatele indică mai multe zone care au nevoie de structură. Înainte de a intensifica activitățile de marketing, merită să clarifici fundația brandului și direcția businessului."
+      label:"Are nevoie de claritate",
+      title:"Este momentul să construiești fundația.",
+      description:"Rezultatul indică mai multe zone în care este nevoie de claritate și structură. Înainte de a investi în mai multe acțiuni de marketing, merită să definești mai bine direcția brandului și obiectivele businessului."
     };
   }
-  if(score<=59){
+
+  if(score<60){
     return {
-      title:"Fundație în curs de consolidare",
-      summary:"Există elemente deja conturate, însă unele dimensiuni au nevoie de mai multă coerență și consecvență. O abordare structurată te poate ajuta să construiești o direcție mai clară."
+      label:"Fundație în consolidare",
+      title:"Ai început să construiești, dar există loc de structură.",
+      description:"Businessul are deja câteva elemente de bază, însă unele direcții pot fi consolidate. O abordare mai coerentă te poate ajuta să conectezi mai bine brandul, comunicarea și obiectivele."
     };
   }
-  if(score<=79){
+
+  if(score<80){
     return {
-      title:"Direcție bună, cu oportunități de optimizare",
-      summary:"Businessul tău are o bază relativ bine definită. Următorul pas este să identifici punctele care pot fi îmbunătățite și să conectezi mai bine strategia, brandul și comunicarea."
+      label:"Direcție bună, cu oportunități",
+      title:"Ai o fundație bună pe care poți construi.",
+      description:"Rezultatul indică o bază relativ bine conturată. Următorul pas este să identifici zonele care pot fi optimizate și să transformi acțiunile existente într-o strategie mai integrată."
     };
   }
+
   return {
-    title:"Fundație bine definită",
-    summary:"Răspunsurile indică un nivel ridicat de claritate și coerență. Menține această direcție prin analiză periodică, adaptare și optimizarea continuă a activităților."
+    label:"Fundație bine definită",
+    title:"Ai construit o bază solidă.",
+    description:"Răspunsurile indică o fundație bine conturată. Menținerea coerenței, analiza rezultatelor și adaptarea la schimbările pieței pot susține dezvoltarea în continuare."
   };
 }
 
-function buildRecommendations(scores){
-  return scores
-    .map((score,index)=>({score,index}))
-    .sort((a,b)=>a.score-b.score)
-    .slice(0,3)
-    .map(item=>{
-      let recommendationIndex=0;
-      if(item.score>=60)recommendationIndex=1;
-      if(item.score>=80)recommendationIndex=2;
-      return {
-        name:dimensions[item.index].name,
-        score:item.score,
-        text:dimensions[item.index].recommendations[recommendationIndex]
-      };
-    });
+function getRecommendation(score,name){
+  if(score<40)return recommendations[name].low;
+  if(score<70)return recommendations[name].medium;
+  return recommendations[name].high;
 }
 
-/* RAPORT TEXT */
+/* GENERATE RESULTS */
 
-function buildPlainTextReport(overall,level,scores,ranked,recommendations){
-  let report="ARVANA BRAND & MARKETING AUDIT\n";
-  report+="Direcție clară. Branduri cu valoare.\n\n";
-  report+=`SCOR GENERAL: ${overall}/100\n${level.title}\n\n${level.summary}\n\n`;
-  report+="SCOR PE DIMENSIUNI\n";
-  scores.forEach((score,index)=>{
-    report+=`${dimensions[index].name}: ${score}/100\n`;
+function generateResults(){
+  if(answers.some(a=>a===null)){
+    alert("Te rugăm să răspunzi la toate întrebările înainte de a vedea rezultatul.");
+    return;
+  }
+
+  const overall = Math.round(
+    answers.reduce((sum,value)=>sum+value,0)/answers.length/5*100
+  );
+
+  const dimensionScores = dimensions.map(d=>{
+    const selected = answers.slice(d.start,d.end);
+    const average = selected.reduce((sum,value)=>sum+value,0)/selected.length;
+
+    return {
+      name:d.name,
+      score:Math.round(average/5*100),
+      description:d.description
+    };
   });
-  report+="\nPUNCTUL FORTE\n";
-  report+=`${dimensions[ranked[0].index].name} (${ranked[0].score}/100)\n`;
-  report+="\nPRIORITATE DE ÎMBUNĂTĂȚIRE\n";
-  report+=`${dimensions[ranked[ranked.length-1].index].name} (${ranked[ranked.length-1].score}/100)\n`;
-  report+="\nRECOMANDĂRI\n";
-  recommendations.forEach((item,index)=>{
-    report+=`\n${index+1}. ${item.name} (${item.score}/100)\n${item.text}\n`;
+
+  const sorted = [...dimensionScores].sort((a,b)=>a.score-b.score);
+  const strongest = [...dimensionScores].sort((a,b)=>b.score-a.score)[0];
+  const weakest = sorted[0];
+
+  const level = getLevel(overall);
+
+  finalReport = {
+    overall,
+    level,
+    dimensions:dimensionScores,
+    strongest,
+    weakest,
+    recommendations:sorted.slice(0,3)
+  };
+
+  document.getElementById("auditArea").classList.remove("active");
+  document.getElementById("results").classList.add("active");
+
+  document.getElementById("overallScore").textContent = overall;
+  document.getElementById("scoreTitle").textContent = level.title;
+  document.getElementById("scoreDescription").textContent = level.description;
+  document.getElementById("scoreLevel").textContent = level.label;
+
+  /* SVG SCORE CHART */
+
+  const scoreArc = document.getElementById("scoreArc");
+  const circumference = 2*Math.PI*78;
+
+  scoreArc.style.strokeDasharray = circumference;
+  scoreArc.style.strokeDashoffset = circumference;
+
+  requestAnimationFrame(()=>{
+    scoreArc.style.strokeDashoffset =
+      circumference*(1-overall/100);
   });
-  report+="\nNotă: Acest raport este o autoevaluare orientativă, nu un audit profesional complet.\n";
-  report+="ARVANA DIGITAL MARKETING\n";
+
+  /* DIMENSION BARS */
+
+  const dimensionContainer = document.getElementById("dimensionResults");
+  dimensionContainer.innerHTML = "";
+
+  dimensionScores.forEach(d=>{
+    const item = document.createElement("div");
+    item.className = "dimension-item";
+
+    const top = document.createElement("div");
+    top.className = "dimension-top";
+
+    const name = document.createElement("span");
+    name.className = "dimension-name";
+    name.textContent = d.name;
+
+    const score = document.createElement("span");
+    score.className = "dimension-score";
+    score.textContent = d.score + "/100";
+
+    top.appendChild(name);
+    top.appendChild(score);
+
+    const track = document.createElement("div");
+    track.className = "dimension-track";
+
+    const fill = document.createElement("div");
+    fill.className = "dimension-fill";
+    fill.style.width = "0%";
+
+    track.appendChild(fill);
+
+    const description = document.createElement("div");
+    description.className = "dimension-description";
+    description.textContent = d.description;
+
+    item.appendChild(top);
+    item.appendChild(track);
+    item.appendChild(description);
+
+    dimensionContainer.appendChild(item);
+
+    requestAnimationFrame(()=>{
+      fill.style.width = d.score + "%";
+    });
+  });
+
+  /* INSIGHTS */
+
+  const insights = document.getElementById("insights");
+  insights.innerHTML = "";
+
+  const insightData = [
+    {
+      label:"Punctul tău forte",
+      title:strongest.name,
+      text:"Aceasta este dimensiunea cu cel mai bun rezultat: "+strongest.score+"/100. Păstrează această direcție și folosește-o ca punct de sprijin pentru dezvoltarea celorlalte zone."
+    },
+    {
+      label:"Prioritate de dezvoltare",
+      title:weakest.name,
+      text:"Această dimensiune are cel mai mic scor: "+weakest.score+"/100. Merită să îi acorzi atenție și să identifici acțiunile concrete prin care o poți consolida."
+    }
+  ];
+
+  insightData.forEach(data=>{
+    const card = document.createElement("div");
+    card.className = "insight";
+
+    const label = document.createElement("div");
+    label.className = "insight-label";
+    label.textContent = data.label;
+
+    const title = document.createElement("h4");
+    title.textContent = data.title;
+
+    const text = document.createElement("p");
+    text.textContent = data.text;
+
+    card.appendChild(label);
+    card.appendChild(title);
+    card.appendChild(text);
+
+    insights.appendChild(card);
+  });
+
+  /* PERSONALIZED RECOMMENDATIONS */
+
+  const recommendationContainer = document.getElementById("recommendations");
+  recommendationContainer.innerHTML = "";
+
+  sorted.slice(0,3).forEach(d=>{
+    const card = document.createElement("div");
+    card.className = "recommendation";
+
+    const title = document.createElement("h4");
+    title.textContent = d.name + " · " + d.score + "/100";
+
+    const text = document.createElement("p");
+    text.textContent = getRecommendation(d.score,d.name);
+
+    card.appendChild(title);
+    card.appendChild(text);
+
+    recommendationContainer.appendChild(card);
+  });
+
+  document.getElementById("results").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+}
+
+/* REPORT TEXT */
+
+function buildReportText(){
+  if(!finalReport)return "";
+
+  let report = "ARVANA BRAND & MARKETING AUDIT\n";
+  report += "Rezultatul evaluării\n\n";
+  report += "Scor general: "+finalReport.overall+"/100\n";
+  report += finalReport.level.label+"\n\n";
+
+  report += "REZULTATE PE DIMENSIUNI\n";
+
+  finalReport.dimensions.forEach(d=>{
+    report += "\n"+d.name+": "+d.score+"/100\n";
+    report += d.description+"\n";
+  });
+
+  report += "\nPUNCT FORTE\n";
+  report += finalReport.strongest.name+" ("+finalReport.strongest.score+"/100)\n";
+
+  report += "\nPRIORITATE DE DEZVOLTARE\n";
+  report += finalReport.weakest.name+" ("+finalReport.weakest.score+"/100)\n";
+
+  report += "\nRECOMANDĂRI\n";
+
+  finalReport.recommendations.forEach(d=>{
+    report += "\n"+d.name+"\n";
+    report += getRecommendation(d.score,d.name)+"\n";
+  });
+
+  report += "\n";
+  report += "ARVANA Digital Marketing\n";
+  report += "Direcție clară. Branduri cu valoare.\n";
+  report += "Instrument de autoevaluare orientativă. Nu reprezintă un audit profesional.";
+
   return report;
 }
 
-/* GENERARE REZULTATE */
+/* PDF */
 
-function generateResults(){
-  const scores=calculateScores();
-  const overall=Math.round(
-    answers.reduce((sum,value)=>sum+value,0)/answers.length/5*100
-  );
-  const level=getScoreLevel(overall);
-  const ranked=scores.map((score,index)=>({score,index})).sort((a,b)=>b.score-a.score);
+function downloadPDF(){
+  if(!finalReport)return;
 
-  document.getElementById("overallScore").textContent=overall;
-  document.getElementById("scoreCircle").style.setProperty("--score",`${overall*3.6}deg`);
-  document.getElementById("resultLevel").textContent=level.title;
-  document.getElementById("resultSummary").textContent=level.summary;
-
-  document.getElementById("dimensionResults").innerHTML=scores.map((score,index)=>`
-    <div class="dimension-result">
-      <div class="dimension-top">
-        <strong>${dimensions[index].name}</strong>
-        <span>${score}/100</span>
-      </div>
-      <div class="dimension-track">
-        <div class="dimension-fill" style="width:${score}%"></div>
-      </div>
-    </div>
-  `).join("");
-
-  document.getElementById("strongestArea").textContent=
-    `${dimensions[ranked[0].index].name} (${ranked[0].score}/100)`;
-  document.getElementById("weakestArea").textContent=
-    `${dimensions[ranked[ranked.length-1].index].name} (${ranked[ranked.length-1].score}/100)`;
-
-  const recommendations=buildRecommendations(scores);
-  document.getElementById("recommendations").innerHTML=recommendations.map((item,index)=>`
-    <div class="recommendation">
-      <h4>${index+1}. ${item.name} — ${item.score}/100</h4>
-      <p>${item.text}</p>
-    </div>
-  `).join("");
-
-  finalReport=buildPlainTextReport(overall,level,scores,ranked,recommendations);
-
-  document.getElementById("audit").classList.add("hidden");
-  document.getElementById("results").classList.remove("hidden");
-  window.scrollTo({top:0,behavior:"smooth"});
+  window.print();
 }
 
-/* COPIERE RAPORT */
+/* COPY REPORT */
 
 async function copyReport(){
+  const report = buildReportText();
+
   try{
-    await navigator.clipboard.writeText(finalReport);
-    alert("Raportul a fost copiat cu succes.");
+    await navigator.clipboard.writeText(report);
+    alert("Raportul a fost copiat. Îl poți lipi într-un document sau mesaj.");
   }catch(error){
-    const textArea=document.createElement("textarea");
-    textArea.value=finalReport;
+    const textArea = document.createElement("textarea");
+    textArea.value = report;
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand("copy");
@@ -1346,49 +2521,36 @@ async function copyReport(){
   }
 }
 
-/* REIA TESTUL */
+/* RESTART */
 
 function restartAudit(){
-  answers=Array(questions.length).fill(null);
-  currentQuestion=0;
-  finalReport="";
-  document.getElementById("results").classList.add("hidden");
-  document.getElementById("audit").classList.remove("hidden");
-  renderQuestion();
-  document.getElementById("audit").scrollIntoView({behavior:"smooth",block:"start"});
+  answers = new Array(questions.length).fill(null);
+  currentQuestion = 0;
+  finalReport = null;
+
+  document.getElementById("results").classList.remove("active");
+
+  startAudit();
 }
 
-/* NAVIGARE */
+/* REVEAL ON SCROLL */
 
-nextBtn.addEventListener("click",()=>{
-  if(answers[currentQuestion]===null){
-    document.getElementById("errorMessage").style.display="block";
-    return;
-  }
+const revealObserver = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
 
-  if(currentQuestion<questions.length-1){
-    currentQuestion++;
-    renderQuestion();
-    document.getElementById("audit").scrollIntoView({behavior:"smooth",block:"start"});
-  }else{
-    generateResults();
-  }
+document.querySelectorAll(".reveal").forEach(element=>{
+  revealObserver.observe(element);
 });
 
-prevBtn.addEventListener("click",()=>{
-  if(currentQuestion>0){
-    currentQuestion--;
-    renderQuestion();
-  }
-});
+/* FOOTER YEAR */
 
-document.getElementById("copyReportBtn").addEventListener("click",copyReport);
-document.getElementById("pdfBtn").addEventListener("click",()=>window.print());
-document.getElementById("restartBtn").addEventListener("click",restartAudit);
-
-/* INITIALIZARE */
-
-renderQuestion();
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
