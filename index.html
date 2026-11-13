@@ -4,31 +4,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#28183f">
-  <meta name="description" content="ARVANA Brand & Marketing Audit. Descoperă cât de clar, coerent și strategic este construit businessul tău.">
+  <meta name="theme-color" content="#302044">
+  <meta name="description" content="ARVANA Brand & Marketing Audit – descoperă cât de clar, coerent și strategic este construit businessul tău.">
 
   <title>ARVANA | Brand & Marketing Audit</title>
 
-  <!-- Elegant typography -->
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --ink: #28183f;
-      --purple: #49316f;
-      --purple-2: #73559a;
-      --lavender: #a992c8;
-      --soft: #eee8f5;
-      --paper: #faf9fc;
-      --white: #ffffff;
-      --muted: #837b8c;
-      --line: #e9e3ef;
-      --green: #638c76;
-      --shadow: 0 22px 65px rgba(45, 27, 68, .08);
+      /* ARVANA logo-inspired palette */
+      --purple-dark: #302044;
+      --purple: #49316F;
+      --purple-medium: #684995;
+      --purple-light: #9274B8;
+      --violet: #B19AD2;
+      --lavender: #DCD0ED;
+      --lavender-soft: #F0EAF7;
+      --lavender-pale: #F8F5FB;
+      --white: #FFFFFF;
+      --ink: #30263B;
+      --muted: #82798D;
+      --line: #E9E1F0;
+      --green: #648C76;
+
       --serif: "Playfair Display", Georgia, serif;
       --sans: "Manrope", sans-serif;
+      --body: "DM Sans", sans-serif;
+
+      --shadow: 0 20px 60px rgba(48, 32, 68, .09);
     }
 
     * {
@@ -41,9 +48,9 @@
 
     body {
       margin: 0;
-      background: var(--paper);
+      background: var(--lavender-pale);
       color: var(--ink);
-      font-family: "DM Sans", sans-serif;
+      font-family: var(--body);
       line-height: 1.65;
       overflow-x: hidden;
     }
@@ -57,28 +64,34 @@
       text-decoration: none;
     }
 
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--violet);
+      outline-offset: 4px;
+    }
+
     .ambient {
       position: fixed;
-      pointer-events: none;
       z-index: -1;
+      pointer-events: none;
       border-radius: 50%;
-      filter: blur(90px);
-      opacity: .35;
+      filter: blur(95px);
+      opacity: .38;
     }
 
-    .ambient.one {
-      width: 360px;
-      height: 360px;
-      background: #d9c9eb;
-      top: 130px;
-      left: -200px;
+    .ambient-one {
+      width: 390px;
+      height: 390px;
+      background: var(--lavender);
+      top: 120px;
+      left: -220px;
     }
 
-    .ambient.two {
-      width: 320px;
-      height: 320px;
-      background: #e5dced;
-      right: -180px;
+    .ambient-two {
+      width: 350px;
+      height: 350px;
+      background: #D6C3EB;
+      right: -210px;
       top: 650px;
     }
 
@@ -87,60 +100,101 @@
     .header {
       position: relative;
       z-index: 5;
-      background: rgba(250, 249, 252, .88);
+      background: rgba(255,255,255,.94);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(73, 49, 111, .09);
+      border-bottom: 1px solid rgba(73,49,111,.12);
     }
 
     .header-inner {
-      max-width: 1160px;
-      min-height: 83px;
-      padding: 12px 30px;
+      max-width: 1220px;
+      min-height: 112px;
+      padding: 13px 34px;
       margin: auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
     }
 
     .logo {
       display: block;
-      width: 185px;
-      max-height: 58px;
+      width: 250px;
+      max-height: 88px;
       object-fit: contain;
       object-position: left center;
     }
 
-    .header-note {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
+    .logo-fallback {
+      display: none;
       color: var(--purple);
+      font-family: var(--sans);
+      font-size: 29px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .header-note {
+      color: var(--purple);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
       text-transform: uppercase;
       text-align: right;
     }
 
     .header-note span {
       display: block;
-      color: var(--muted);
+      color: var(--purple-light);
       font-size: 9px;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 1.5px;
-      margin-top: 4px;
+      margin-top: 5px;
     }
 
     /* HERO */
 
     .hero {
       position: relative;
-      padding: 90px 24px 72px;
+      padding: 96px 24px 85px;
       overflow: hidden;
       background:
-        radial-gradient(ellipse at 80% 20%, rgba(176, 151, 208, .19), transparent 38%),
-        linear-gradient(135deg, #f7f4fa 0%, #fcfbfd 55%, #f1ecf7 100%);
+        radial-gradient(ellipse at 82% 18%, rgba(177,154,210,.38), transparent 37%),
+        radial-gradient(ellipse at 8% 90%, rgba(220,208,237,.48), transparent 35%),
+        linear-gradient(135deg, #F5F0FA 0%, #FCFAFD 52%, #EEE6F6 100%);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(104,73,149,.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 360px;
+      height: 360px;
+      right: -180px;
+      top: 20px;
+    }
+
+    .hero::after {
+      width: 250px;
+      height: 250px;
+      right: -125px;
+      top: 75px;
     }
 
     .hero-inner {
+      position: relative;
+      z-index: 1;
       max-width: 960px;
       margin: auto;
       text-align: center;
@@ -150,8 +204,9 @@
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      color: var(--purple-2);
+      justify-content: center;
+      gap: 11px;
+      color: var(--purple-medium);
       font-size: 10px;
       font-weight: 800;
       letter-spacing: 2.8px;
@@ -163,30 +218,30 @@
       content: "";
       width: 25px;
       height: 1px;
-      background: var(--lavender);
+      background: var(--violet);
     }
 
     .hero h1 {
+      color: var(--purple-dark);
       font-family: var(--serif);
+      font-size: clamp(43px, 7vw, 78px);
       font-weight: 400;
-      color: var(--ink);
-      font-size: clamp(42px, 7vw, 76px);
       line-height: 1.08;
       letter-spacing: -2px;
-      margin: 23px 0 20px;
+      margin: 24px 0 22px;
     }
 
     .hero h1 em {
-      color: var(--purple-2);
+      color: var(--purple-medium);
       font-weight: 400;
     }
 
     .hero-description {
-      max-width: 720px;
-      margin: 0 auto;
-      color: #70687b;
+      max-width: 740px;
+      margin: auto;
+      color: #71677E;
       font-size: 15px;
-      line-height: 1.9;
+      line-height: 1.95;
     }
 
     .hero-description strong {
@@ -195,10 +250,10 @@
     }
 
     .hero-divider {
-      width: 55px;
-      height: 1px;
-      background: var(--lavender);
-      margin: 30px auto;
+      width: 58px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--purple), var(--violet));
+      margin: 31px auto;
     }
 
     .hero-statement {
@@ -206,7 +261,7 @@
       margin: auto;
       color: var(--purple);
       font-family: var(--serif);
-      font-size: clamp(19px, 3vw, 25px);
+      font-size: clamp(20px, 3vw, 27px);
       line-height: 1.5;
     }
 
@@ -214,40 +269,40 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 28px;
-      margin-top: 32px;
+      gap: 15px 28px;
+      margin-top: 34px;
     }
 
     .meta-item {
       display: flex;
       align-items: center;
       gap: 8px;
-      color: var(--muted);
+      color: var(--purple-medium);
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .meta-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--lavender);
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
+      background: var(--violet);
     }
 
     /* MAIN */
 
     .main {
-      max-width: 900px;
+      max-width: 920px;
       margin: auto;
       padding: 0 24px 90px;
     }
 
     .intro-panel {
       position: relative;
-      margin-top: -20px;
-      padding: 29px 34px;
-      background: rgba(255,255,255,.88);
-      border: 1px solid rgba(73,49,111,.09);
+      margin-top: -22px;
+      padding: 30px 36px;
+      background: rgba(255,255,255,.95);
+      border: 1px solid var(--line);
       border-radius: 18px;
       box-shadow: var(--shadow);
       display: grid;
@@ -258,10 +313,10 @@
     }
 
     .intro-panel h2 {
+      color: var(--purple-dark);
       font-family: var(--serif);
-      font-size: 24px;
+      font-size: 25px;
       font-weight: 400;
-      color: var(--ink);
       margin: 0 0 5px;
     }
 
@@ -274,47 +329,47 @@
     .intro-number {
       color: var(--lavender);
       font-family: var(--serif);
-      font-size: 54px;
+      font-size: 57px;
       line-height: 1;
     }
 
-    /* QUESTION AREA */
+    /* AUDIT */
 
     .audit-area {
-      margin-top: 55px;
+      margin-top: 57px;
     }
 
     .audit-heading {
       text-align: center;
-      margin-bottom: 27px;
+      margin-bottom: 28px;
     }
 
     .audit-heading h2 {
+      color: var(--purple-dark);
       font-family: var(--serif);
-      font-size: 34px;
+      font-size: 35px;
       font-weight: 400;
       margin: 10px 0 5px;
-      color: var(--ink);
     }
 
     .audit-heading p {
-      font-size: 12px;
       color: var(--muted);
+      font-size: 12px;
       margin: 0;
     }
 
     .progress-panel {
-      background: rgba(255,255,255,.75);
+      padding: 19px 22px;
+      margin-bottom: 16px;
+      background: rgba(255,255,255,.86);
       border: 1px solid var(--line);
       border-radius: 14px;
-      padding: 18px 21px;
-      margin-bottom: 16px;
     }
 
     .progress-top {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 12px;
       margin-bottom: 11px;
     }
@@ -322,7 +377,7 @@
     .progress-label {
       color: var(--purple);
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .progress-percent {
@@ -331,16 +386,16 @@
     }
 
     .progress-track {
-      height: 4px;
-      background: #eee9f3;
+      height: 5px;
+      background: var(--lavender-soft);
       border-radius: 20px;
       overflow: hidden;
     }
 
     .progress-fill {
-      height: 100%;
       width: 0;
-      background: linear-gradient(90deg, var(--purple), #a68bc9);
+      height: 100%;
+      background: linear-gradient(90deg, var(--purple), var(--violet));
       border-radius: 20px;
       transition: width .5s cubic-bezier(.2,.8,.2,1);
     }
@@ -348,27 +403,27 @@
     .question-card {
       position: relative;
       overflow: hidden;
-      background: var(--white);
-      border: 1px solid rgba(73,49,111,.1);
-      border-radius: 20px;
-      padding: 38px 42px 35px;
-      box-shadow: var(--shadow);
       min-height: 355px;
-      animation: cardEnter .45s ease both;
+      padding: 38px 42px 35px;
+      background: var(--white);
+      border: 1px solid rgba(104,73,149,.15);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      animation: cardEnter .4s ease both;
     }
 
     .question-card::after {
       content: "";
       position: absolute;
-      width: 180px;
-      height: 180px;
-      right: -95px;
-      bottom: -100px;
-      border: 1px solid rgba(165,138,203,.2);
+      width: 190px;
+      height: 190px;
+      right: -105px;
+      bottom: -105px;
+      border: 1px solid rgba(177,154,210,.35);
       border-radius: 50%;
       box-shadow:
-        0 0 0 20px rgba(165,138,203,.035),
-        0 0 0 40px rgba(165,138,203,.025);
+        0 0 0 20px rgba(177,154,210,.06),
+        0 0 0 42px rgba(177,154,210,.035);
       pointer-events: none;
     }
 
@@ -382,9 +437,9 @@
 
     .dimension-tag {
       display: inline-block;
-      background: #f1ebf7;
-      color: var(--purple);
       padding: 7px 13px;
+      background: var(--lavender-soft);
+      color: var(--purple);
       border-radius: 30px;
       font-size: 9px;
       font-weight: 800;
@@ -393,18 +448,18 @@
     }
 
     .question-index {
-      color: #b0a8b9;
+      color: var(--violet);
       font-family: var(--serif);
       font-size: 19px;
     }
 
     .question-title {
-      max-width: 650px;
+      max-width: 660px;
+      color: var(--purple-dark);
       font-family: var(--serif);
-      font-size: clamp(24px, 4vw, 32px);
+      font-size: clamp(24px, 4vw, 33px);
       font-weight: 400;
       line-height: 1.35;
-      color: var(--ink);
       margin: 0 0 10px;
     }
 
@@ -416,35 +471,35 @@
     }
 
     .scale {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 10px;
-      position: relative;
-      z-index: 1;
     }
 
     .scale-option {
-      border: 1px solid var(--line);
-      background: #fdfcfe;
-      color: var(--purple);
-      border-radius: 12px;
       min-height: 83px;
       padding: 12px 5px;
+      background: #FDFCFE;
+      color: var(--purple);
+      border: 1px solid var(--line);
+      border-radius: 12px;
       cursor: pointer;
       transition: transform .22s, border .22s, background .22s, box-shadow .22s;
     }
 
     .scale-option:hover {
       transform: translateY(-4px);
-      border-color: var(--lavender);
-      box-shadow: 0 8px 20px rgba(73,49,111,.08);
+      border-color: var(--violet);
+      box-shadow: 0 8px 20px rgba(73,49,111,.09);
     }
 
     .scale-option.selected {
       color: white;
-      background: linear-gradient(145deg, var(--purple), #6a4c91);
+      background: linear-gradient(145deg, var(--purple-dark), var(--purple-medium));
       border-color: var(--purple);
-      box-shadow: 0 8px 22px rgba(73,49,111,.2);
+      box-shadow: 0 8px 22px rgba(73,49,111,.22);
       transform: translateY(-3px);
     }
 
@@ -466,14 +521,14 @@
       display: flex;
       justify-content: space-between;
       gap: 10px;
-      color: #a39aaa;
+      color: #A39AAA;
       font-size: 10px;
       margin-top: 12px;
     }
 
     .error {
       display: none;
-      color: #a64c58;
+      color: #A64C58;
       font-size: 11px;
       margin-top: 13px;
     }
@@ -487,18 +542,18 @@
     }
 
     .btn {
-      border: 0;
-      cursor: pointer;
-      border-radius: 40px;
-      padding: 14px 24px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .5px;
-      transition: transform .2s, box-shadow .2s, background .2s;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 9px;
+      padding: 14px 24px;
+      border: 0;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      transition: transform .2s, box-shadow .2s, background .2s;
     }
 
     .btn:hover:not(:disabled) {
@@ -511,23 +566,22 @@
     }
 
     .btn-primary {
-      background: var(--purple);
       color: white;
-      box-shadow: 0 8px 20px rgba(73,49,111,.15);
+      background: linear-gradient(120deg, var(--purple-dark), var(--purple-medium));
+      box-shadow: 0 8px 20px rgba(73,49,111,.17);
     }
 
     .btn-primary:hover:not(:disabled) {
-      background: var(--ink);
-      box-shadow: 0 12px 25px rgba(73,49,111,.2);
+      box-shadow: 0 12px 25px rgba(73,49,111,.25);
     }
 
     .btn-light {
-      background: #f0ebf6;
       color: var(--purple);
+      background: var(--lavender-soft);
     }
 
     .btn-light:hover:not(:disabled) {
-      background: #e5dbee;
+      background: var(--lavender);
     }
 
     /* RESULTS */
@@ -537,11 +591,11 @@
     }
 
     .result-card {
+      padding: 39px;
       background: white;
       border: 1px solid var(--line);
       border-radius: 20px;
       box-shadow: var(--shadow);
-      padding: 38px;
     }
 
     .result-heading {
@@ -549,10 +603,10 @@
     }
 
     .result-heading h2 {
+      color: var(--purple-dark);
       font-family: var(--serif);
-      font-size: 36px;
+      font-size: 37px;
       font-weight: 400;
-      color: var(--ink);
       margin: 9px 0 4px;
     }
 
@@ -563,14 +617,14 @@
     }
 
     .score-circle {
+      position: relative;
+      display: grid;
+      place-items: center;
       width: 190px;
       height: 190px;
       margin: 30px auto 20px;
       border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: conic-gradient(var(--purple) var(--score), #eee9f3 var(--score));
-      position: relative;
+      background: conic-gradient(var(--purple-medium) var(--score), var(--lavender-soft) var(--score));
       animation: scoreIn .9s ease both;
     }
 
@@ -585,13 +639,13 @@
 
     .score-content {
       position: relative;
-      text-align: center;
       z-index: 1;
+      text-align: center;
     }
 
     .score-number {
       display: block;
-      color: var(--ink);
+      color: var(--purple-dark);
       font-family: var(--serif);
       font-size: 57px;
       line-height: 1;
@@ -611,9 +665,10 @@
     .result-level {
       display: inline-block;
       padding: 9px 17px;
-      border-radius: 30px;
-      background: var(--lavender);
+      background: var(--lavender-soft);
       color: var(--purple);
+      border: 1px solid var(--lavender);
+      border-radius: 30px;
       font-size: 11px;
       font-weight: 800;
     }
@@ -627,11 +682,11 @@
     }
 
     .section-title {
+      color: var(--purple-dark);
       font-family: var(--serif);
-      font-size: 25px;
+      font-size: 26px;
       font-weight: 400;
-      color: var(--ink);
-      margin: 35px 0 18px;
+      margin: 36px 0 18px;
     }
 
     .dimension-result {
@@ -652,21 +707,21 @@
     }
 
     .dimension-top span {
-      color: var(--purple-2);
+      color: var(--purple-medium);
       font-weight: 800;
     }
 
     .dimension-track {
       height: 7px;
+      background: var(--lavender-soft);
       border-radius: 20px;
-      background: #eee9f3;
       overflow: hidden;
     }
 
     .dimension-fill {
       height: 100%;
+      background: linear-gradient(90deg, var(--purple), var(--violet));
       border-radius: 20px;
-      background: linear-gradient(90deg, #715394, #b39bcf);
       animation: barIn .8s ease both;
     }
 
@@ -678,10 +733,10 @@
     }
 
     .insight {
-      background: #f8f6fa;
+      padding: 19px;
+      background: var(--lavender-pale);
       border: 1px solid var(--line);
       border-radius: 13px;
-      padding: 19px;
     }
 
     .insight small {
@@ -700,11 +755,11 @@
     }
 
     .recommendation {
-      border-left: 2px solid var(--lavender);
-      background: #faf9fc;
-      border-radius: 0 12px 12px 0;
       padding: 17px 19px;
       margin-bottom: 11px;
+      background: #FAF8FC;
+      border-left: 3px solid var(--violet);
+      border-radius: 0 12px 12px 0;
     }
 
     .recommendation h4 {
@@ -720,10 +775,10 @@
     }
 
     .disclaimer {
-      text-align: center;
-      color: #9991a0;
-      font-size: 10px;
       max-width: 650px;
+      color: #9991A0;
+      text-align: center;
+      font-size: 10px;
       margin: 25px auto 0;
     }
 
@@ -735,59 +790,132 @@
       margin-top: 23px;
     }
 
+    /* PROFESSIONAL CONSULTATION SECTION */
+
+    .professional-section {
+      position: relative;
+      overflow: hidden;
+      margin-top: 24px;
+      padding: 43px 42px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(177,154,210,.25), transparent 35%),
+        linear-gradient(135deg, #F1EAF8, #FAF7FC);
+      border: 1px solid #E4D8F0;
+      border-radius: 20px;
+    }
+
+    .professional-section::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      right: -130px;
+      bottom: -140px;
+      border: 1px solid rgba(104,73,149,.18);
+      border-radius: 50%;
+      box-shadow: 0 0 0 25px rgba(104,73,149,.035);
+      pointer-events: none;
+    }
+
+    .professional-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+
+    .professional-section h3 {
+      color: var(--purple-dark);
+      font-family: var(--serif);
+      font-size: clamp(27px, 4vw, 36px);
+      line-height: 1.25;
+      font-weight: 400;
+      margin: 14px 0 13px;
+    }
+
+    .professional-section p {
+      color: #70677D;
+      font-size: 13px;
+      line-height: 1.9;
+      margin: 0 0 14px;
+    }
+
+    .professional-section p strong {
+      color: var(--purple);
+    }
+
+    .professional-note {
+      padding-left: 17px;
+      border-left: 2px solid var(--violet);
+      color: var(--purple) !important;
+      font-family: var(--serif);
+      font-size: 19px !important;
+      line-height: 1.55 !important;
+      margin: 22px 0 !important;
+    }
+
+    .professional-section .btn {
+      margin-top: 8px;
+    }
+
     /* CTA */
 
     .cta {
-      margin-top: 22px;
-      background:
-        radial-gradient(circle at 90% 0%, rgba(180,153,212,.24), transparent 35%),
-        linear-gradient(135deg, #2c1b46, #49316f);
-      border-radius: 20px;
-      padding: 40px 30px;
-      text-align: center;
-      color: white;
       position: relative;
       overflow: hidden;
+      margin-top: 23px;
+      padding: 43px 30px;
+      background:
+        radial-gradient(circle at 90% 0%, rgba(177,154,210,.26), transparent 36%),
+        linear-gradient(130deg, #302044, #49316F 65%, #65488E);
+      border-radius: 20px;
+      color: white;
+      text-align: center;
     }
 
     .cta .eyebrow {
-      color: #d5c5e8;
+      color: #DCCFED;
+    }
+
+    .cta .eyebrow::before,
+    .cta .eyebrow::after {
+      background: #BDA9D7;
     }
 
     .cta h3 {
       font-family: var(--serif);
-      font-size: 31px;
+      font-size: 32px;
       font-weight: 400;
-      margin: 12px 0;
+      margin: 13px 0;
     }
 
     .cta p {
-      color: #ddd4e9;
+      max-width: 540px;
+      color: #E0D8E9;
       font-size: 12px;
-      max-width: 530px;
       margin: 0 auto 22px;
     }
 
     .cta .btn {
-      background: white;
       color: var(--purple);
+      background: white;
     }
 
     .cta .btn:hover {
-      background: #f0eaf7;
+      background: var(--lavender-soft);
     }
 
     /* FOOTER */
 
     .footer {
-      padding: 30px 20px;
+      padding: 31px 20px;
       text-align: center;
+      background: white;
       border-top: 1px solid var(--line);
     }
 
     .footer img {
-      width: 145px;
-      max-height: 45px;
+      width: 175px;
+      max-height: 60px;
       object-fit: contain;
       margin-bottom: 7px;
     }
@@ -841,28 +969,32 @@
       from { width: 0; }
     }
 
+    /* MOBILE */
+
     @media (max-width: 650px) {
       .header-inner {
-        padding: 12px 17px;
-        min-height: 70px;
+        min-height: 88px;
+        padding: 10px 17px;
+        gap: 10px;
       }
 
       .logo {
-        width: 145px;
-        max-height: 48px;
+        width: 190px;
+        max-height: 68px;
       }
 
       .header-note {
-        font-size: 8px;
-        letter-spacing: 1px;
+        font-size: 7px;
+        letter-spacing: .8px;
       }
 
       .header-note span {
-        font-size: 8px;
+        font-size: 7px;
+        letter-spacing: .6px;
       }
 
       .hero {
-        padding: 65px 18px 55px;
+        padding: 67px 18px 57px;
       }
 
       .hero h1 {
@@ -874,7 +1006,7 @@
       }
 
       .hero-meta {
-        gap: 13px 19px;
+        gap: 13px 18px;
       }
 
       .meta-item {
@@ -904,8 +1036,8 @@
       }
 
       .question-card {
-        padding: 25px 19px;
         min-height: auto;
+        padding: 25px 19px;
       }
 
       .question-title {
@@ -954,8 +1086,16 @@
         width: 100%;
       }
 
+      .professional-section {
+        padding: 31px 23px;
+      }
+
+      .professional-section h3 {
+        font-size: 29px;
+      }
+
       .cta {
-        padding: 33px 21px;
+        padding: 34px 21px;
       }
 
       .cta h3 {
@@ -964,12 +1104,16 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         scroll-behavior: auto !important;
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
       }
     }
+
+    /* PRINT */
 
     @media print {
       body {
@@ -990,6 +1134,7 @@
       }
 
       .main {
+        max-width: 100%;
         padding: 10px;
       }
 
@@ -998,10 +1143,15 @@
         border: 0;
       }
 
+      .professional-section,
+      .cta {
+        break-inside: avoid;
+      }
+
       .cta {
         background: white;
-        border: 1px solid #ddd;
-        color: var(--ink);
+        border: 1px solid #DDD;
+        color: var(--purple-dark);
       }
 
       .cta p {
@@ -1018,19 +1168,26 @@
 
 <body>
 
-  <div class="ambient one"></div>
-  <div class="ambient two"></div>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
 
+  <!-- HEADER -->
   <header class="header">
     <div class="header-inner">
-      <a href="https://marianapastean.my.canva.site/mariana-pastean-portfolio" aria-label="ARVANA Digital Marketing">
+
+      <a
+        class="brand-link"
+        href="https://marianapastean.my.canva.site/mariana-pastean-portfolio"
+        aria-label="ARVANA Digital Marketing"
+      >
         <img
           class="logo"
           src="./Logo%20-%20ARVANA%20Digital%20Marketing%20(1).png"
           alt="ARVANA Digital Marketing"
           onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';"
         >
-        <span id="logoFallback" style="display:none;font-family:Manrope,sans-serif;font-weight:800;letter-spacing:3px;color:#49316f;">
+
+        <span id="logoFallback" class="logo-fallback">
           ARVANA
         </span>
       </a>
@@ -1039,13 +1196,17 @@
         Strategic Marketing
         <span>& Brand Development</span>
       </div>
+
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
 
-      <div class="eyebrow">Un instrument pentru businessul tău</div>
+      <div class="eyebrow">
+        Un instrument pentru businessul tău
+      </div>
 
       <h1>
         Înainte de marketing,<br>
@@ -1071,14 +1232,17 @@
           <span class="meta-dot"></span>
           15 întrebări
         </div>
+
         <div class="meta-item">
           <span class="meta-dot"></span>
           5 dimensiuni
         </div>
+
         <div class="meta-item">
           <span class="meta-dot"></span>
           Raport personalizat
         </div>
+
         <div class="meta-item">
           <span class="meta-dot"></span>
           Gratuit
@@ -1088,6 +1252,7 @@
     </div>
   </section>
 
+  <!-- MAIN -->
   <main class="main">
 
     <section class="intro-panel">
@@ -1098,22 +1263,33 @@
           Răspunde sincer, în funcție de situația actuală a businessului.
         </p>
       </div>
+
       <div class="intro-number">01</div>
     </section>
 
+    <!-- QUESTIONS -->
     <section class="audit-area" id="audit">
 
       <div class="audit-heading">
         <div class="eyebrow">Autoevaluare</div>
         <h2>Descoperă unde te afli.</h2>
-        <p>Nu există răspunsuri corecte sau greșite. Contează perspectiva ta reală.</p>
+        <p>
+          Nu există răspunsuri corecte sau greșite.
+          Contează perspectiva ta reală.
+        </p>
       </div>
 
       <div class="progress-panel">
         <div class="progress-top">
-          <span class="progress-label" id="progressText">Întrebarea 1 din 15</span>
-          <span class="progress-percent" id="progressPercent">0% completat</span>
+          <span class="progress-label" id="progressText">
+            Întrebarea 1 din 15
+          </span>
+
+          <span class="progress-percent" id="progressPercent">
+            0% completat
+          </span>
         </div>
+
         <div class="progress-track">
           <div class="progress-fill" id="progressFill"></div>
         </div>
@@ -1122,21 +1298,32 @@
       <div id="questionContainer"></div>
 
       <div class="navigation">
-        <button class="btn btn-light" id="prevBtn" type="button" disabled>
+        <button
+          class="btn btn-light"
+          id="prevBtn"
+          type="button"
+          disabled
+        >
           ← Înapoi
         </button>
 
-        <button class="btn btn-primary" id="nextBtn" type="button" disabled>
+        <button
+          class="btn btn-primary"
+          id="nextBtn"
+          type="button"
+          disabled
+        >
           Următoarea întrebare →
         </button>
       </div>
 
-      <div class="error" id="errorMessage">
+      <div class="error" id="errorMessage" role="alert">
         Selectează un răspuns pentru a continua.
       </div>
 
     </section>
 
+    <!-- RESULTS -->
     <section id="results" class="results hidden">
 
       <div class="result-card">
@@ -1160,10 +1347,14 @@
 
         <p class="result-summary" id="resultSummary"></p>
 
-        <h3 class="section-title">Evaluarea pe dimensiuni</h3>
+        <h3 class="section-title">
+          Evaluarea pe dimensiuni
+        </h3>
+
         <div id="dimensionResults"></div>
 
         <div class="insight-grid">
+
           <div class="insight">
             <small>Punctul forte</small>
             <strong id="strongestArea"></strong>
@@ -1173,9 +1364,13 @@
             <small>Prioritatea de îmbunătățire</small>
             <strong id="weakestArea"></strong>
           </div>
+
         </div>
 
-        <h3 class="section-title">Direcții de îmbunătățire</h3>
+        <h3 class="section-title">
+          Direcții de îmbunătățire
+        </h3>
+
         <div id="recommendations"></div>
 
         <p class="disclaimer">
@@ -1186,28 +1381,104 @@
         </p>
 
         <div class="result-actions">
-          <button class="btn btn-primary" id="copyReportBtn" type="button">
+
+          <button
+            class="btn btn-primary"
+            id="copyReportBtn"
+            type="button"
+          >
             Copiază raportul
           </button>
 
-          <button class="btn btn-light" id="pdfBtn" type="button">
+          <button
+            class="btn btn-light"
+            id="pdfBtn"
+            type="button"
+          >
             Salvează PDF
           </button>
 
-          <button class="btn btn-light" id="restartBtn" type="button">
+          <button
+            class="btn btn-light"
+            id="restartBtn"
+            type="button"
+          >
             Reia evaluarea
           </button>
+
         </div>
 
       </div>
 
+      <!-- PROFESSIONAL CONSULTATION -->
+      <section class="professional-section">
+
+        <div class="professional-content">
+
+          <div class="eyebrow">
+            Dincolo de autoevaluare
+          </div>
+
+          <h3>
+            Uneori, următorul pas nu este să faci mai mult.
+            Este să înțelegi mai bine ce ai de făcut.
+          </h3>
+
+          <p>
+            Rezultatele acestui audit îți oferă un prim reper.
+            Însă fiecare business are propriul context: obiective,
+            resurse, public, concurență și provocări.
+          </p>
+
+          <p>
+            <strong>O discuție cu un profesionist în marketing</strong>
+            te poate ajuta să privești aceste elemente în ansamblu,
+            să identifici cauzele din spatele problemelor și să
+            stabilești ce merită prioritizat.
+          </p>
+
+          <p>
+            Nu orice business are nevoie de mai mult conținut,
+            de încă o platformă sau de o campanie nouă.
+            Uneori, are nevoie de o poziționare mai clară,
+            de o ofertă mai bine definită sau de o strategie
+            care să conecteze toate acțiunile de marketing.
+          </p>
+
+          <p class="professional-note">
+            O perspectivă profesionistă nu înlocuiește cunoașterea
+            propriului business. Te ajută să o transformi într-o
+            direcție mai clară și în decizii mai bine fundamentate.
+          </p>
+
+          <a
+            class="btn btn-primary"
+            href="https://marianapastean.my.canva.site/mariana-pastean-portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Descoperă serviciile ARVANA →
+          </a>
+
+        </div>
+
+      </section>
+
+      <!-- FINAL CTA -->
       <section class="cta">
-        <div class="eyebrow">Următorul pas</div>
-        <h3>Direcția potrivită începe cu o decizie clară.</h3>
+
+        <div class="eyebrow">
+          ARVANA Digital Marketing
+        </div>
+
+        <h3>
+          Direcție clară. Branduri cu valoare.
+        </h3>
+
         <p>
-          Dacă rezultatele evaluării ți-au oferit o perspectivă asupra
-          businessului, descoperă cum poate contribui o abordare
-          strategică la dezvoltarea brandului și a comunicării tale.
+          Dacă simți că businessul tău are nevoie de mai multă
+          claritate în strategie, branding sau comunicare,
+          descoperă abordarea ARVANA.
         </p>
 
         <a
@@ -1218,22 +1489,31 @@
         >
           Descoperă ARVANA →
         </a>
+
       </section>
 
     </section>
 
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
+
     <img
       src="./Logo%20-%20ARVANA%20Digital%20Marketing%20(1).png"
       alt="ARVANA Digital Marketing"
       onerror="this.style.display='none';"
     >
-    <p>Direcție clară. Branduri cu valoare.</p>
+
+    <p>
+      Direcție clară. Branduri cu valoare.
+    </p>
+
   </footer>
 
   <script>
+    /* AUDIT DIMENSIONS */
+
     const dimensions = [
       {
         name: "Poziționare",
@@ -1276,6 +1556,8 @@
         ]
       }
     ];
+
+    /* 15 QUESTIONS */
 
     const questions = [
       {
@@ -1376,6 +1658,8 @@
     const prevBtn =
       document.getElementById("prevBtn");
 
+    /* RENDER QUESTION */
+
     function renderQuestion() {
       const question = questions[currentQuestion];
       const dimension = dimensions[question.dimension];
@@ -1398,10 +1682,11 @@
         `${percentage}%`;
 
       questionContainer.innerHTML = `
-        <div class="question-card" id="activeQuestion">
+        <div class="question-card">
 
           <div class="question-top">
             <span class="dimension-tag">${dimension.name}</span>
+
             <span class="question-index">
               ${String(currentQuestion + 1).padStart(2, "0")} / 15
             </span>
@@ -1468,6 +1753,8 @@
           : "Următoarea întrebare →";
     }
 
+    /* CALCULATE SCORES */
+
     function calculateScores() {
       return dimensions.map((dimension, dimensionIndex) => {
         const dimensionAnswers = questions
@@ -1486,6 +1773,8 @@
         return Math.round(average / 5 * 100);
       });
     }
+
+    /* RESULT INTERPRETATION */
 
     function getScoreLevel(score) {
       if (score <= 39) {
@@ -1519,6 +1808,8 @@
       };
     }
 
+    /* RECOMMENDATIONS */
+
     function buildRecommendations(scores) {
       const ranked = scores
         .map((score, index) => ({
@@ -1546,6 +1837,8 @@
         };
       });
     }
+
+    /* TEXT REPORT */
 
     function buildPlainTextReport(
       overall,
@@ -1592,6 +1885,8 @@
       return report;
     }
 
+    /* DISPLAY RESULTS */
+
     function generateResults() {
       const scores = calculateScores();
 
@@ -1627,6 +1922,7 @@
       document.getElementById("dimensionResults").innerHTML =
         scores.map((score, index) => `
           <div class="dimension-result">
+
             <div class="dimension-top">
               <strong>${dimensions[index].name}</strong>
               <span>${score}/100</span>
@@ -1638,6 +1934,7 @@
                 style="width:${score}%"
               ></div>
             </div>
+
           </div>
         `).join("");
 
@@ -1678,22 +1975,20 @@
       });
     }
 
+    /* COPY REPORT */
+
     async function copyReport() {
       try {
         await navigator.clipboard.writeText(finalReport);
-
         alert("Raportul a fost copiat cu succes.");
 
       } catch (error) {
-        const textArea =
-          document.createElement("textarea");
+        const textArea = document.createElement("textarea");
 
         textArea.value = finalReport;
-
         document.body.appendChild(textArea);
 
         textArea.select();
-
         document.execCommand("copy");
 
         textArea.remove();
@@ -1701,6 +1996,8 @@
         alert("Raportul a fost copiat.");
       }
     }
+
+    /* RESTART */
 
     function restartAudit() {
       answers = Array(questions.length).fill(null);
@@ -1720,6 +2017,8 @@
         block: "start"
       });
     }
+
+    /* NAVIGATION */
 
     nextBtn.addEventListener("click", () => {
       if (answers[currentQuestion] === null) {
@@ -1748,7 +2047,6 @@
     prevBtn.addEventListener("click", () => {
       if (currentQuestion > 0) {
         currentQuestion--;
-
         renderQuestion();
       }
     });
@@ -1761,6 +2059,8 @@
 
     document.getElementById("restartBtn")
       .addEventListener("click", restartAudit);
+
+    /* INITIALIZE */
 
     renderQuestion();
   </script>
